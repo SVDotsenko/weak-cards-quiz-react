@@ -4,13 +4,31 @@ import CardView from "../components/cards/CardView";
 import QuizCard from "../components/quiz/QuizCard";
 
 function QuizPage() {
-  const { quiz, setQuiz, answerQuiz, nextQuestion, startQuiz, cards } =
-    useApp();
+  const {
+    quiz,
+    setQuiz,
+    answerQuiz,
+    nextQuestion,
+    startQuiz,
+    cards,
+    batchSize,
+    changeBatchSize,
+  } = useApp();
 
   if (!quiz)
     return (
       <section className="panel empty-state">
         <p>Тест ещё не начат.</p>
+        <label className="setting-field">
+          Размер батча
+          <input
+            type="number"
+            min="1"
+            max="100"
+            value={batchSize}
+            onChange={(event) => changeBatchSize(event.target.value)}
+          />
+        </label>
         <button onClick={startQuiz} disabled={!cards.length}>
           Начать тест
         </button>

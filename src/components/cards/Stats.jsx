@@ -5,7 +5,7 @@ function Stats({ cards }) {
   const values = [
     ["Всего карточек", stats.totalCount],
     ["Проблемных", stats.problemCount],
-    ["Изучено", `${stats.studiedPercent}%`],
+    ["Изучено", `${stats.studiedCount} (${stats.studiedPercent}%)`],
     ["Отвечено", stats.answeredCount],
   ];
 

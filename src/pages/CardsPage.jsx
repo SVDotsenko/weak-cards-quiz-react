@@ -1,27 +1,12 @@
-import { useNavigate } from "react-router-dom";
 import { filterCards } from "../cards";
 import { useApp } from "../app/useApp";
 import CardView from "../components/cards/CardView";
 import Stats from "../components/cards/Stats";
 
 function CardsPage() {
-  const navigate = useNavigate();
-  const {
-    cards,
-    filter,
-    setFilter,
-    batchSize,
-    changeBatchSize,
-    importFiles,
-    exportCards,
-    resetStats,
-    startQuiz,
-  } = useApp();
+  const { cards, filter, setFilter, importFiles, exportCards, resetStats } =
+    useApp();
   const visibleCards = filterCards(cards, filter);
-
-  function beginQuiz() {
-    if (startQuiz()) navigate("/quiz");
-  }
 
   return (
     <>
@@ -36,28 +21,14 @@ function CardsPage() {
             />
             Загрузить JSON-файл
           </label>
-          <button onClick={beginQuiz} disabled={!cards.length}>
-            Начать тест
-          </button>
           <button onClick={exportCards} disabled={!cards.length}>
             Экспортировать JSON
           </button>
           <button onClick={resetStats} disabled={!cards.length}>
             Обнулить статистику
           </button>
-        </div>
-        <div className="batch-row">
-          <label>
-            Размер батча{" "}
-            <input
-              type="number"
-              min="1"
-              max="100"
-              value={batchSize}
-              onChange={(event) => changeBatchSize(event.target.value)}
-            />
-          </label>
           <select
+            className="filter-select"
             value={filter}
             onChange={(event) => setFilter(event.target.value)}
           >

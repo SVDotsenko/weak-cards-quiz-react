@@ -77,20 +77,11 @@ button:disabled {
   text-align: left;
 }
 
-header {
-  margin-bottom: 24px;
-}
-
-.app-title-link {
-  color: inherit;
-  text-decoration: none;
-}
-
 .main-navigation {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-top: 20px;
+  margin-bottom: 24px;
 }
 
 .main-navigation a,
@@ -109,15 +100,6 @@ header {
 .main-navigation a.active {
   background: var(--blue);
   color: #fff;
-}
-
-.eyebrow {
-  margin: 0 0 6px;
-  color: var(--blue);
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: .12em;
-  text-transform: uppercase;
 }
 
 h1,
@@ -156,7 +138,6 @@ main {
 }
 
 .control-row,
-.batch-row,
 .panel-header,
 .card-header {
   display: flex;
@@ -169,8 +150,8 @@ main {
   margin-bottom: 16px;
 }
 
-.batch-row {
-  justify-content: space-between;
+.filter-select {
+  margin-left: auto;
 }
 
 .file-picker {
@@ -191,24 +172,6 @@ main {
   width: 1px;
   height: 1px;
   opacity: 0;
-}
-
-.batch-row label {
-  font-weight: 700;
-}
-
-.batch-row input,
-.batch-row select {
-  min-height: 38px;
-  margin-left: 8px;
-  padding: 0 10px;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: var(--paper);
-}
-
-.batch-row input {
-  width: 80px;
 }
 
 .stats-grid {
@@ -411,14 +374,6 @@ main {
 
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
-  }
-
-  .batch-row {
-    align-items: stretch;
-  }
-
-  .batch-row>* {
-    width: 100%;
   }
 }
 
