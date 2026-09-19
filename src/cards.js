@@ -1,6 +1,5 @@
 export const STORAGE_KEY = 'weak-cards-quiz.cards'
 export const BATCH_SIZE_STORAGE_KEY = 'weak-cards-quiz.batch-size'
-export const EXPORT_FORMAT_STORAGE_KEY = 'weak-cards-quiz.export-format'
 export const DEFAULT_BATCH_SIZE = 10
 
 export function normalizeBatchSize(value, fallback = DEFAULT_BATCH_SIZE) {
@@ -9,15 +8,14 @@ export function normalizeBatchSize(value, fallback = DEFAULT_BATCH_SIZE) {
 }
 
 export function normalizeCards(rawCards) {
-    const cards = Array.isArray(rawCards) ? rawCards : rawCards?.cards
-    if (!Array.isArray(cards)) throw new Error('JSON должен содержать массив карточек или объект с массивом cards.')
-    return cards.map((card, index) => ({
+    if (!Array.isArray(rawCards)) throw new Error('JSON должен содержать массив карточек.')
+    return rawCards.map((card, index) => ({
         ...card,
         id: String(card.id ?? `card-${index + 1}`),
         en: { question: card.en?.question ?? 'Нет вопроса', options: card.en?.options ?? {} },
         ru: { question: card.ru?.question ?? 'Нет перевода', options: card.ru?.options ?? {} },
         correctOptionId: card.correctOptionId ?? Object.keys(card.en?.options ?? {})[0] ?? 'opt1',
-        stats: { timesShown: Number(card.stats?.timesShown ?? 0), timesCorrect: Number(card.stats?.timesCorrect ?? 0), timesWrong: Number(card.stats?.timesWrong ?? 0), lastAttemptCorrect: card.stats?.lastAttemptCorrect ?? null },
+        stats: { timesShown: Number(card.stats?.timesShown ?? 0), timesWrong: Number(card.stats?.timesWrong ?? 0), lastAttemptCorrect: card.stats?.lastAttemptCorrect ?? null },
     }))
 }
 
@@ -30,10 +28,9 @@ export function validateImportedCard(card, index) {
 }
 
 export function parseImportedCards(raw) {
-    const source = Array.isArray(raw) ? raw : raw?.cards
-    if (!Array.isArray(source)) throw new Error('JSON должен содержать массив карточек или объект с массивом cards.')
+    if (!Array.isArray(raw)) throw new Error('JSON должен содержать массив карточек.')
     const invalidTitles = []
-    const cards = source.flatMap((card, index) => {
+    const cards = raw.flatMap((card, index) => {
         const validation = validateImportedCard(card, index)
         if (!validation.valid) { invalidTitles.push(validation.title); return [] }
         return normalizeCards([card])
@@ -42,7 +39,10 @@ export function parseImportedCards(raw) {
 }
 
 export function normalizeDuplicateValue(value) { return String(value ?? '').toLocaleLowerCase().replace(/\s+/g, '') }
-export function getCardDuplicateKey(card) { return `${normalizeDuplicateValue(card.en?.question)}::${String(card.correctOptionId ?? '')}` }
+export function getCardDuplicateKey(card) {
+    const correctAnswerText = card.en?.options?.[card.correctOptionId] ?? ''
+    return `${normalizeDuplicateValue(card.en?.question)}::${normalizeDuplicateValue(correctAnswerText)}`
+}
 
 function lastCardNumber(cards) {
     return cards.reduce((last, card) => {

@@ -28,7 +28,7 @@ function CardView({ card, index, review, selectedOptionId }) {
       </ul>
       {!review && (
         <div className="card-meta">
-          <span>Верно: {card.stats.timesCorrect}</span>
+          <span>Верно: {card.stats.timesShown - card.stats.timesWrong}</span>
           <span>Неверно: {card.stats.timesWrong}</span>
         </div>
       )}
