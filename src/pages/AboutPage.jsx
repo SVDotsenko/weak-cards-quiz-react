@@ -1,7 +1,6 @@
 function AboutPage() {
   return (
     <section className="panel page-copy">
-      <h2>О приложении</h2>
       <h3>Зачем?</h3>
       <p>
         Приложение помогает повторять карточки, на которых чаще всего возникают
