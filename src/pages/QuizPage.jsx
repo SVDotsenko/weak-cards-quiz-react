@@ -20,13 +20,6 @@ function QuizPage() {
   if (quiz.done)
     return (
       <section className="panel">
-        <h2>Батч завершён</h2>
-        <p>
-          Правильных ответов: <strong>{quiz.correct}</strong>
-        </p>
-        <p>
-          Неправильных ответов: <strong>{quiz.wrong}</strong>
-        </p>
         {quiz.mistakes.length ? (
           <div className="cards-list">
             {quiz.mistakes.map((item, index) => (
