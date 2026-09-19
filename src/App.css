@@ -263,6 +263,13 @@ main {
   font-weight: 700;
 }
 
+.answer-correct {
+  border-color: #94d8b4 !important;
+  background: #e8f8ef !important;
+  color: var(--green);
+  font-weight: 700;
+}
+
 .wrong-option,
 .answer-wrong {
   border-color: #e6a4ae !important;
@@ -300,6 +307,8 @@ main {
 }
 
 .quiz-action {
+  display: block;
+  margin-left: auto;
   width: 190px;
   background: var(--blue);
   color: #fff;
