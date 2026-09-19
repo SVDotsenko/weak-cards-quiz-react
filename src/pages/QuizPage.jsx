@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { useEffect } from "react";
 import { useApp } from "../app/useApp";
 import CardView from "../components/cards/CardView";
 import QuizCard from "../components/quiz/QuizCard";
@@ -14,6 +14,12 @@ function QuizPage() {
     batchSize,
     changeBatchSize,
   } = useApp();
+
+  // при заходе на маршрут всегда начинать с экрана "Начать тест", а не с результата прошлого прохода
+  useEffect(() => {
+    setQuiz(null);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   if (!quiz)
     return (
@@ -53,9 +59,6 @@ function QuizPage() {
         ) : (
           <p>Ошибок нет.</p>
         )}
-        <Link className="button-link" to="/cards">
-          Вернуться к карточкам
-        </Link>
       </section>
     );
 
