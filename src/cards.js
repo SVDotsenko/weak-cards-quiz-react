@@ -74,7 +74,6 @@ export function getExportableCards(cards) {
     return cards.map((card) => {
         const exported = { ...card }
         delete exported.id
-        delete exported.stats
         return exported
     })
 }

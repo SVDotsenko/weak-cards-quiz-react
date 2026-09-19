@@ -22,7 +22,5 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-plan.md
-todo.md
-old
+*.md
 jsons
