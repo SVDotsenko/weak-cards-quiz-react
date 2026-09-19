@@ -202,6 +202,7 @@ export function AppProvider({ children }) {
         setFilter,
         batchSize,
         changeBatchSize,
+        notify,
         toast,
         quiz,
         setQuiz,

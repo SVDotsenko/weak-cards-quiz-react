@@ -317,7 +317,28 @@ main {
 }
 
 .page-copy {
-  max-width: 760px;
+  width: 100%;
+}
+
+.page-copy pre {
+  max-width: 100%;
+  margin: 0;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.prompt-block {
+  display: block;
+  margin-top: 12px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--wash);
+}
+
+.prompt-block button {
+  display: block;
+  margin-bottom: 12px;
 }
 
 .page-copy h3 {
