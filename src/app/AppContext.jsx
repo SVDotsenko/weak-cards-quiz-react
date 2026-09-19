@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import {
   BATCH_SIZE_STORAGE_KEY,
   DEFAULT_BATCH_SIZE,
-  STORAGE_KEY,
   buildQuizBatch,
   getExportableCards,
   getStoredCards,
@@ -179,11 +178,14 @@ export function AppProvider({ children }) {
     });
   }
 
-  function clearCards() {
-    localStorage.removeItem(STORAGE_KEY);
-    setCards([]);
+  function resetStats() {
+    const updated = cards.map((card) => ({
+      ...card,
+      stats: { timesShown: 0, timesWrong: 0, lastAttemptCorrect: null },
+    }));
+    updateCards(updated);
     setQuiz(null);
-    notify("Все карточки удалены.");
+    notify("Статистика обнулена.");
   }
 
   function changeBatchSize(value) {
@@ -208,7 +210,7 @@ export function AppProvider({ children }) {
         startQuiz,
         answerQuiz,
         nextQuestion,
-        clearCards,
+        resetStats,
       }}
     >
       {children}

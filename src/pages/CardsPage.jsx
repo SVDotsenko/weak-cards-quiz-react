@@ -14,7 +14,7 @@ function CardsPage() {
     changeBatchSize,
     importFiles,
     exportCards,
-    clearCards,
+    resetStats,
     startQuiz,
   } = useApp();
   const visibleCards = filterCards(cards, filter);
@@ -42,8 +42,8 @@ function CardsPage() {
           <button onClick={exportCards} disabled={!cards.length}>
             Экспортировать JSON
           </button>
-          <button onClick={clearCards} disabled={!cards.length}>
-            Удалить все карточки
+          <button onClick={resetStats} disabled={!cards.length}>
+            Обнулить статистику
           </button>
         </div>
         <div className="batch-row">
