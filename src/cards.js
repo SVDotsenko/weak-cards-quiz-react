@@ -65,8 +65,9 @@ export function calculateOverallStats(cards) {
 }
 export function filterCards(cards, filter) { return filter === 'problem' ? cards.filter((card) => card.stats.lastAttemptCorrect === false) : filter === 'errors' ? cards.filter((card) => card.stats.timesWrong > 0) : cards }
 export function buildQuizBatch(cards, requestedCount) {
-    const prioritized = cards.filter((card) => card.stats.lastAttemptCorrect === false); const untouched = cards.filter((card) => card.stats.lastAttemptCorrect === null); const seen = new Set(prioritized.map((card) => card.id))
-    return [...prioritized, ...untouched.filter((card) => !seen.has(card.id)), ...cards.filter((card) => !seen.has(card.id))].slice(0, requestedCount)
+    const prioritized = cards.filter((card) => card.stats.lastAttemptCorrect === false)
+    const untouched = cards.filter((card) => card.stats.lastAttemptCorrect === null)
+    return [...prioritized, ...untouched].slice(0, requestedCount)
 }
 export function shuffleOptions(options) { return [...Object.entries(options || {})].sort(() => Math.random() - 0.5) }
 export function getExportableCards(cards) {
