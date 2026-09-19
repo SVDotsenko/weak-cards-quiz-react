@@ -10,6 +10,7 @@ The app complements the official theory-test app. Its main purpose is to collect
 - During the first quiz, cards are taken in their stored order.
 - After each answer, the app highlights the correct option. At the end of the quiz, it shows the questions answered incorrectly, together with the selected and correct answers.
 - In later quizzes, cards whose most recent answer was wrong are shown first. Cards that have never been answered are then used to fill the remaining places in the batch.
+- Answer options are shuffled each time a quiz starts, so the correct answer can appear in a different position when you see the same card again.
 - You can switch any card between English and Russian to understand the complete question and answer options.
 
 ## Recommended workflow
