@@ -20,7 +20,7 @@ function CardView({ card, index, review, selectedOptionId }) {
         {Object.entries(content.options).map(([id, text]) => (
           <li
             key={id}
-            className={`${id === card.correctOptionId && review ? "correct-option" : ""} ${id === selectedOptionId && id !== card.correctOptionId ? "wrong-option" : ""}`}
+            className={`${id === card.correctOptionId ? "correct-option" : ""} ${id === selectedOptionId && id !== card.correctOptionId ? "wrong-option" : ""}`}
           >
             {text}
           </li>
@@ -28,8 +28,8 @@ function CardView({ card, index, review, selectedOptionId }) {
       </ul>
       {!review && (
         <div className="card-meta">
-          <span>Верно: {card.stats.timesShown - card.stats.timesWrong}</span>
-          <span>Неверно: {card.stats.timesWrong}</span>
+          <span>Ошибок: {card.stats.timesWrong}</span>
+          <span>Изучений: {card.stats.timesShown}</span>
         </div>
       )}
     </article>
