@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function QuizCard({ card, quiz, setQuiz }) {
+function QuizCard({ card, quiz, setQuiz, onAnswer, onNext }) {
   const [language, setLanguage] = useState("en");
   const content = card[language] || card.en;
   const options = card.shuffledOptions[language] || [];
@@ -40,6 +40,13 @@ function QuizCard({ card, quiz, setQuiz }) {
           </label>
         ))}
       </div>
+      <button
+        className="primary-button quiz-action"
+        disabled={!quiz.selected && !quiz.answered}
+        onClick={quiz.answered ? onNext : onAnswer}
+      >
+        {quiz.answered ? "Следующая карточка" : "Ответить"}
+      </button>
     </div>
   );
 }

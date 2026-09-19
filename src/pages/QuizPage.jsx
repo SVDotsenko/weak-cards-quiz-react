@@ -45,7 +45,6 @@ function QuizPage() {
   return (
     <section className="panel quiz-panel">
       <div className="panel-header">
-        <h2>Тестирование</h2>
         <span>
           Карточка {quiz.index + 1} из {quiz.cards.length}
         </span>
@@ -55,14 +54,9 @@ function QuizPage() {
         card={currentCard}
         quiz={quiz}
         setQuiz={setQuiz}
+        onAnswer={answerQuiz}
+        onNext={nextQuestion}
       />
-      <button
-        className="primary-button quiz-action"
-        disabled={!quiz.selected && !quiz.answered}
-        onClick={quiz.answered ? nextQuestion : answerQuiz}
-      >
-        {quiz.answered ? "Следующая карточка" : "Ответить"}
-      </button>
     </section>
   );
 }
