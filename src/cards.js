@@ -59,6 +59,7 @@ export function mergeUniqueImportedCards(storedCards, importedCards) {
 
 export function getStoredCards() { try { return normalizeCards(JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]')) } catch { localStorage.removeItem(STORAGE_KEY); return [] } }
 export function saveCards(cards) { localStorage.setItem(STORAGE_KEY, JSON.stringify(cards)) }
+export function clearStoredCards() { localStorage.removeItem(STORAGE_KEY) }
 export function calculateOverallStats(cards) {
     const studiedCount = cards.filter((card) => card.stats.timesShown > 0).length
     return { totalCount: cards.length, problemCount: cards.filter((card) => card.stats.lastAttemptCorrect === false).length, studiedCount, studiedPercent: cards.length ? Math.round((studiedCount / cards.length) * 100) : 0, answeredCount: cards.reduce((total, card) => total + card.stats.timesShown, 0) }

@@ -2,7 +2,9 @@ import { useEffect, useState } from "react";
 import {
   BATCH_SIZE_STORAGE_KEY,
   DEFAULT_BATCH_SIZE,
+  STORAGE_KEY,
   buildQuizBatch,
+  clearStoredCards,
   getExportableCards,
   getStoredCards,
   mergeUniqueImportedCards,
@@ -12,6 +14,8 @@ import {
   shuffleOptions,
 } from "../cards";
 import { AppContext } from "./context";
+
+const SAMPLE_CARDS_URL = `${import.meta.env.BASE_URL}sample.json`;
 
 export function AppProvider({ children }) {
   const [cards, setCards] = useState(getStoredCards);
@@ -31,6 +35,37 @@ export function AppProvider({ children }) {
     return () => clearTimeout(timer);
   }, [toast]);
 
+  useEffect(() => {
+    if (localStorage.getItem(STORAGE_KEY)) return;
+
+    if (!import.meta.env.PROD) {
+      notify(
+        "Тестовые карточки не загружаются в локальном режиме. Загрузите карточки вручную.",
+        "error",
+      );
+      return;
+    }
+
+    (async () => {
+      try {
+        const response = await fetch(SAMPLE_CARDS_URL);
+        if (!response.ok) throw new Error("файл sample.json не найден");
+        const result = parseImportedCards(JSON.parse(await response.text()));
+        if (!result.cards.length)
+          throw new Error("файл sample.json не содержит карточек");
+        setCards(result.cards);
+        saveCards(result.cards);
+        notify(`Загружены тестовые карточки: ${result.cards.length}.`);
+      } catch (error) {
+        notify(
+          `Не удалось загрузить тестовые карточки: ${error.message}.`,
+          "error",
+        );
+      }
+    })();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   function notify(message, type = "success") {
     setToast({ message, type });
   }
@@ -38,6 +73,13 @@ export function AppProvider({ children }) {
   function updateCards(nextCards) {
     setCards(nextCards);
     saveCards(nextCards);
+  }
+
+  function deleteAllCards() {
+    clearStoredCards();
+    setCards([]);
+    setQuiz(null);
+    notify("Все карточки удалены.");
   }
 
   async function importFiles(files) {
@@ -208,6 +250,7 @@ export function AppProvider({ children }) {
         setQuiz,
         importFiles,
         exportCards,
+        deleteAllCards,
         startQuiz,
         answerQuiz,
         nextQuestion,

@@ -4,9 +4,22 @@ import CardView from "../components/cards/CardView";
 import Stats from "../components/cards/Stats";
 
 function CardsPage() {
-  const { cards, filter, setFilter, importFiles, exportCards, resetStats } =
-    useApp();
+  const {
+    cards,
+    filter,
+    setFilter,
+    importFiles,
+    exportCards,
+    resetStats,
+    deleteAllCards,
+  } = useApp();
   const visibleCards = filterCards(cards, filter);
+
+  function handleDeleteAll() {
+    if (window.confirm("Удалить все карточки безвозвратно?")) {
+      deleteAllCards();
+    }
+  }
 
   return (
     <>
@@ -26,6 +39,9 @@ function CardsPage() {
           </button>
           <button onClick={resetStats} disabled={!cards.length}>
             Обнулить статистику
+          </button>
+          <button onClick={handleDeleteAll} disabled={!cards.length}>
+            Удалить все карточки
           </button>
           <select
             className="filter-select"
