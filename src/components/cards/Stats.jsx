@@ -1,6 +1,6 @@
 import { calculateOverallStats } from "../../cards";
 
-function Stats({ cards }) {
+function Stats({ cards, visible }) {
   const stats = calculateOverallStats(cards);
   const values = [
     ["Всего карточек", stats.totalCount],
@@ -10,7 +10,9 @@ function Stats({ cards }) {
   ];
 
   return (
-    <div className="stats-grid">
+    <div
+      className={`stats-grid ${visible ? "stats-grid--visible" : "stats-grid--hidden"}`}
+    >
       {values.map(([label, value]) => (
         <div key={label}>
           <span>{label}</span>

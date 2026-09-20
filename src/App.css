@@ -223,6 +223,21 @@ main {
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
   margin: 18px 0;
+  max-height: 180px;
+  overflow: hidden;
+  opacity: 1;
+  transform: translateY(0);
+  transition: max-height .3s ease, margin .3s ease, opacity .25s ease, transform .3s ease, visibility .3s ease;
+  visibility: visible;
+}
+
+.stats-grid--hidden {
+  max-height: 0;
+  margin-block: 0;
+  opacity: 0;
+  transform: translateY(-20px);
+  visibility: hidden;
+  pointer-events: none;
 }
 
 .stats-grid>div {

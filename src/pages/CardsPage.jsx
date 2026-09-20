@@ -59,7 +59,7 @@ function CardsPage() {
         </div>
       </section>
       <section className="panel">
-        <Stats cards={cards} />
+        <Stats cards={cards} visible={filter === "all"} />
         {visibleCards.length ? (
           <div className="cards-list">
             {visibleCards.map((card, index) => (
