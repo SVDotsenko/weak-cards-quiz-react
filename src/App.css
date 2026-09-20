@@ -304,6 +304,10 @@ main {
   list-style: none;
 }
 
+.card-item .option-list {
+  margin-top: 12px;
+}
+
 .option-list li,
 .quiz-options label {
   padding: 9px 11px;

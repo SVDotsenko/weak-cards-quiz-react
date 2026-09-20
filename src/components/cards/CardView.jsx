@@ -7,6 +7,7 @@ function CardView({ card, index, review, selectedOptionId }) {
   return (
     <article className="card-item">
       <div className="card-header">
+        <h3>{content.question}</h3>
         <button
           className="language-button"
           onClick={() => setLanguage(language === "en" ? "ru" : "en")}
@@ -14,7 +15,6 @@ function CardView({ card, index, review, selectedOptionId }) {
           {language === "en" ? "Русский" : "English"}
         </button>
       </div>
-      <p className="question">{content.question}</p>
       <ul className="option-list">
         {Object.entries(content.options).map(([id, text]) => (
           <li
