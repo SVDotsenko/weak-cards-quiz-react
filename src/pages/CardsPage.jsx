@@ -50,15 +50,12 @@ function CardsPage() {
               ? "Удалить все карточки"
               : "Загрузить тестовые карточки"}
           </button>
-          <select
-            className="filter-select"
-            value={filter}
-            onChange={(event) => setFilter(event.target.value)}
+          <button
+            type="button"
+            onClick={() => setFilter(filter === "all" ? "errors" : "all")}
           >
-            <option value="all">Все карточки</option>
-            <option value="problem">Проблемные</option>
-            <option value="errors">С ошибками</option>
-          </select>
+            {filter === "all" ? "Все карточки" : "С ошибками"}
+          </button>
         </div>
       </section>
       <section className="panel">

@@ -198,10 +198,6 @@ main {
   margin-bottom: 16px;
 }
 
-.filter-select {
-  margin-left: auto;
-}
-
 .file-picker {
   display: inline-flex;
   min-height: 42px;
