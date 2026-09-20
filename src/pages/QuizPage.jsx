@@ -1,6 +1,6 @@
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { useApp } from "../app/useApp";
-import CardView from "../components/cards/CardView";
 import QuizCard from "../components/quiz/QuizCard";
 
 function QuizPage() {
@@ -14,12 +14,19 @@ function QuizPage() {
     batchSize,
     changeBatchSize,
   } = useApp();
+  const navigate = useNavigate();
 
   // при заходе на маршрут всегда начинать с экрана "Начать тест", а не с результата прошлого прохода
   useEffect(() => {
     setQuiz(null);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  function handleNext() {
+    const isLastQuestion = quiz.index >= quiz.cards.length - 1;
+    nextQuestion();
+    if (isLastQuestion) navigate("/cards");
+  }
 
   if (!quiz)
     return (
@@ -41,27 +48,6 @@ function QuizPage() {
       </section>
     );
 
-  if (quiz.done)
-    return (
-      <section className="panel">
-        {quiz.mistakes.length ? (
-          <div className="cards-list">
-            {quiz.mistakes.map((item, index) => (
-              <CardView
-                key={item.card.id}
-                card={item.card}
-                index={index}
-                review
-                selectedOptionId={item.selected}
-              />
-            ))}
-          </div>
-        ) : (
-          <p>Ошибок нет.</p>
-        )}
-      </section>
-    );
-
   const currentCard = quiz.cards[quiz.index];
   return (
     <section className="panel quiz-panel">
@@ -76,7 +62,7 @@ function QuizPage() {
         quiz={quiz}
         setQuiz={setQuiz}
         onAnswer={answerQuiz}
-        onNext={nextQuestion}
+        onNext={handleNext}
       />
     </section>
   );

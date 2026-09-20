@@ -1,4 +1,4 @@
-import { filterCards } from "../cards";
+import { filterCards, sortCardsForDisplay } from "../cards";
 import { useApp } from "../app/useApp";
 import CardView from "../components/cards/CardView";
 import Stats from "../components/cards/Stats";
@@ -14,7 +14,7 @@ function CardsPage() {
     deleteAllCards,
     loadSampleCards,
   } = useApp();
-  const visibleCards = filterCards(cards, filter);
+  const visibleCards = sortCardsForDisplay(filterCards(cards, filter));
 
   function handleDeleteOrLoadSample() {
     if (!cards.length) {
@@ -66,7 +66,16 @@ function CardsPage() {
         {visibleCards.length ? (
           <div className="cards-list">
             {visibleCards.map((card, index) => (
-              <CardView key={card.id} card={card} index={index} />
+              <CardView
+                key={card.id}
+                card={card}
+                index={index}
+                selectedOptionId={
+                  card.stats.lastAttemptCorrect === false
+                    ? card.stats.lastSelectedOptionId
+                    : undefined
+                }
+              />
             ))}
           </div>
         ) : (

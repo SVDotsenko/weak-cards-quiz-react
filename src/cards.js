@@ -27,7 +27,7 @@ export function normalizeCards(rawCards) {
             en: { question: card.en?.question ?? 'Нет вопроса', options: card.en?.options ?? {} },
             ru: { question: card.ru?.question ?? 'Нет перевода', options: card.ru?.options ?? {} },
             correctOptionId: card.correctOptionId ?? Object.keys(card.en?.options ?? {})[0] ?? 'opt1',
-            stats: { timesShown: Number(card.stats?.timesShown ?? 0), timesWrong: Number(card.stats?.timesWrong ?? 0), lastAttemptCorrect: card.stats?.lastAttemptCorrect ?? null },
+            stats: { timesShown: Number(card.stats?.timesShown ?? 0), timesWrong: Number(card.stats?.timesWrong ?? 0), lastAttemptCorrect: card.stats?.lastAttemptCorrect ?? null, lastSelectedOptionId: card.stats?.lastSelectedOptionId ?? null },
         }
     })
 }
@@ -78,6 +78,12 @@ export function calculateOverallStats(cards) {
     return { totalCount: cards.length, problemCount: cards.filter((card) => card.stats.lastAttemptCorrect === false).length, studiedCount, studiedPercent: cards.length ? Math.round((studiedCount / cards.length) * 100) : 0, answeredCount: cards.reduce((total, card) => total + card.stats.timesShown, 0) }
 }
 export function filterCards(cards, filter) { return filter === 'problem' ? cards.filter((card) => card.stats.lastAttemptCorrect === false) : filter === 'errors' ? cards.filter((card) => card.stats.timesWrong > 0) : cards }
+export function sortCardsForDisplay(cards) {
+    const prioritized = cards.filter((card) => card.stats.lastAttemptCorrect === false)
+    const untouched = cards.filter((card) => card.stats.lastAttemptCorrect === null)
+    const mastered = cards.filter((card) => card.stats.lastAttemptCorrect === true)
+    return [...prioritized, ...untouched, ...mastered]
+}
 export function buildQuizBatch(cards, requestedCount) {
     const prioritized = cards.filter((card) => card.stats.lastAttemptCorrect === false)
     const untouched = cards.filter((card) => card.stats.lastAttemptCorrect === null)

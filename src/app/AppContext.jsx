@@ -171,7 +171,6 @@ export function AppProvider({ children }) {
       index: 0,
       selected: null,
       answered: false,
-      mistakes: [],
       correct: 0,
       wrong: 0,
     });
@@ -195,6 +194,7 @@ export function AppProvider({ children }) {
               timesShown: stored.stats.timesShown + 1,
               timesWrong: stored.stats.timesWrong + (isCorrect ? 0 : 1),
               lastAttemptCorrect: isCorrect,
+              lastSelectedOptionId: quiz.selected,
             },
           }
         : stored,
@@ -206,15 +206,12 @@ export function AppProvider({ children }) {
       answered: true,
       correct: quiz.correct + (isCorrect ? 1 : 0),
       wrong: quiz.wrong + (isCorrect ? 0 : 1),
-      mistakes: isCorrect
-        ? quiz.mistakes
-        : [...quiz.mistakes, { card, selected: quiz.selected }],
     });
   }
 
   function nextQuestion() {
     if (quiz.index >= quiz.cards.length - 1) {
-      setQuiz({ ...quiz, done: true });
+      setQuiz(null);
       return;
     }
     setQuiz({
@@ -228,7 +225,12 @@ export function AppProvider({ children }) {
   function resetStats() {
     const updated = cards.map((card) => ({
       ...card,
-      stats: { timesShown: 0, timesWrong: 0, lastAttemptCorrect: null },
+      stats: {
+        timesShown: 0,
+        timesWrong: 0,
+        lastAttemptCorrect: null,
+        lastSelectedOptionId: null,
+      },
     }));
     updateCards(updated);
     setQuiz(null);
