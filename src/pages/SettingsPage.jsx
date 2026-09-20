@@ -1,21 +1,31 @@
 import { useApp } from "../app/useApp";
 
+const START_ROUTE_CHOICES = [
+  { value: "/cards", label: "Все карточки" },
+  { value: "/quiz", label: "Тест" },
+  { value: "/about", label: "О приложении" },
+];
+
 function SettingsPage() {
-  const { batchSize, changeBatchSize } = useApp();
+  const { startRoute, changeStartRoute } = useApp();
 
   return (
     <section className="panel page-copy">
-      <p>Параметры прохождения теста сохраняются в браузере.</p>
-      <label className="setting-field">
-        Размер батча
-        <input
-          type="number"
-          min="1"
-          max="100"
-          value={batchSize}
-          onChange={(event) => changeBatchSize(event.target.value)}
-        />
-      </label>
+      <fieldset className="setting-radio-group">
+        <legend>Страница при входе в приложение</legend>
+        {START_ROUTE_CHOICES.map(({ value, label }) => (
+          <label key={value}>
+            <input
+              type="radio"
+              name="start-route"
+              value={value}
+              checked={startRoute === value}
+              onChange={() => changeStartRoute(value)}
+            />
+            {label}
+          </label>
+        ))}
+      </fieldset>
     </section>
   );
 }

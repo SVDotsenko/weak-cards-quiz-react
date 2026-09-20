@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import {
   BATCH_SIZE_STORAGE_KEY,
   DEFAULT_BATCH_SIZE,
+  START_ROUTE_STORAGE_KEY,
   STORAGE_KEY,
   buildQuizBatch,
   clearStoredCards,
@@ -9,6 +10,7 @@ import {
   getStoredCards,
   mergeUniqueImportedCards,
   normalizeBatchSize,
+  normalizeStartRoute,
   parseImportedCards,
   saveCards,
   shuffleOptions,
@@ -28,6 +30,9 @@ export function AppProvider({ children }) {
   );
   const [toast, setToast] = useState(null);
   const [quiz, setQuiz] = useState(null);
+  const [startRoute, setStartRoute] = useState(() =>
+    normalizeStartRoute(localStorage.getItem(START_ROUTE_STORAGE_KEY)),
+  );
 
   useEffect(() => {
     if (!toast) return undefined;
@@ -236,6 +241,12 @@ export function AppProvider({ children }) {
     localStorage.setItem(BATCH_SIZE_STORAGE_KEY, String(nextSize));
   }
 
+  function changeStartRoute(value) {
+    const nextRoute = normalizeStartRoute(value);
+    setStartRoute(nextRoute);
+    localStorage.setItem(START_ROUTE_STORAGE_KEY, nextRoute);
+  }
+
   return (
     <AppContext.Provider
       value={{
@@ -244,6 +255,8 @@ export function AppProvider({ children }) {
         setFilter,
         batchSize,
         changeBatchSize,
+        startRoute,
+        changeStartRoute,
         notify,
         toast,
         quiz,

@@ -361,6 +361,28 @@ main {
   border-radius: 8px;
 }
 
+.setting-radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 16px;
+  padding: 12px 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.setting-radio-group legend {
+  font-weight: 700;
+  padding: 0 4px;
+}
+
+.setting-radio-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 400;
+}
+
 .toast {
   position: fixed;
   right: 22px;

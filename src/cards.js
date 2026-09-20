@@ -1,10 +1,17 @@
 export const STORAGE_KEY = 'weak-cards-quiz.cards'
 export const BATCH_SIZE_STORAGE_KEY = 'weak-cards-quiz.batch-size'
 export const DEFAULT_BATCH_SIZE = 10
+export const START_ROUTE_STORAGE_KEY = 'weak-cards-quiz.start-route'
+export const START_ROUTE_OPTIONS = ['/cards', '/quiz', '/about']
+export const DEFAULT_START_ROUTE = '/about'
 
 export function normalizeBatchSize(value, fallback = DEFAULT_BATCH_SIZE) {
     const parsed = Number(value)
     return Number.isFinite(parsed) && parsed >= 1 ? Math.floor(parsed) : fallback
+}
+
+export function normalizeStartRoute(value, fallback = DEFAULT_START_ROUTE) {
+    return START_ROUTE_OPTIONS.includes(value) ? value : fallback
 }
 
 export function normalizeCards(rawCards) {
