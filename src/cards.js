@@ -16,14 +16,20 @@ export function normalizeStartRoute(value, fallback = DEFAULT_START_ROUTE) {
 
 export function normalizeCards(rawCards) {
     if (!Array.isArray(rawCards)) throw new Error('JSON должен содержать массив карточек.')
-    return rawCards.map((card, index) => ({
-        ...card,
-        id: String(card.id ?? `card-${index + 1}`),
-        en: { question: card.en?.question ?? 'Нет вопроса', options: card.en?.options ?? {} },
-        ru: { question: card.ru?.question ?? 'Нет перевода', options: card.ru?.options ?? {} },
-        correctOptionId: card.correctOptionId ?? Object.keys(card.en?.options ?? {})[0] ?? 'opt1',
-        stats: { timesShown: Number(card.stats?.timesShown ?? 0), timesWrong: Number(card.stats?.timesWrong ?? 0), lastAttemptCorrect: card.stats?.lastAttemptCorrect ?? null },
-    }))
+    const usedIds = new Set()
+    return rawCards.map((card, index) => {
+        let id = String(card.id ?? `card-${index + 1}`)
+        while (usedIds.has(id)) id = `card-${index + 1}-${usedIds.size}`
+        usedIds.add(id)
+        return {
+            ...card,
+            id,
+            en: { question: card.en?.question ?? 'Нет вопроса', options: card.en?.options ?? {} },
+            ru: { question: card.ru?.question ?? 'Нет перевода', options: card.ru?.options ?? {} },
+            correctOptionId: card.correctOptionId ?? Object.keys(card.en?.options ?? {})[0] ?? 'opt1',
+            stats: { timesShown: Number(card.stats?.timesShown ?? 0), timesWrong: Number(card.stats?.timesWrong ?? 0), lastAttemptCorrect: card.stats?.lastAttemptCorrect ?? null },
+        }
+    })
 }
 
 export function validateImportedCard(card, index) {
@@ -37,12 +43,12 @@ export function validateImportedCard(card, index) {
 export function parseImportedCards(raw) {
     if (!Array.isArray(raw)) throw new Error('JSON должен содержать массив карточек.')
     const invalidTitles = []
-    const cards = raw.flatMap((card, index) => {
+    const validCards = raw.flatMap((card, index) => {
         const validation = validateImportedCard(card, index)
         if (!validation.valid) { invalidTitles.push(validation.title); return [] }
-        return normalizeCards([card])
+        return [card]
     })
-    return { cards, invalidTitles }
+    return { cards: normalizeCards(validCards), invalidTitles }
 }
 
 export function normalizeDuplicateValue(value) { return String(value ?? '').toLocaleLowerCase().replace(/\s+/g, '') }
