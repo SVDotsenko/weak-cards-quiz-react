@@ -52,6 +52,11 @@ function CardsPage() {
           </button>
           <button
             type="button"
+            title={
+              filter === "all"
+                ? "Показать карточки с ошибками"
+                : "Показать все карточки"
+            }
             onClick={() => setFilter(filter === "all" ? "errors" : "all")}
           >
             {filter === "all" ? "Все карточки" : "С ошибками"}
