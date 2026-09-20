@@ -12,10 +12,15 @@ function CardsPage() {
     exportCards,
     resetStats,
     deleteAllCards,
+    loadSampleCards,
   } = useApp();
   const visibleCards = filterCards(cards, filter);
 
-  function handleDeleteAll() {
+  function handleDeleteOrLoadSample() {
+    if (!cards.length) {
+      loadSampleCards();
+      return;
+    }
     if (window.confirm("Удалить все карточки безвозвратно?")) {
       deleteAllCards();
     }
@@ -40,8 +45,10 @@ function CardsPage() {
           <button onClick={resetStats} disabled={!cards.length}>
             Обнулить статистику
           </button>
-          <button onClick={handleDeleteAll} disabled={!cards.length}>
-            Удалить все карточки
+          <button onClick={handleDeleteOrLoadSample}>
+            {cards.length
+              ? "Удалить все карточки"
+              : "Загрузить тестовые карточки"}
           </button>
           <select
             className="filter-select"

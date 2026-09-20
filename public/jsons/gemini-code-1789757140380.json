@@ -1,0 +1,268 @@
+[
+  {
+    "id": "1",
+    "correctOptionId": "opt1",
+    "en": {
+      "question": "Which of the following must a driver do when carrying out a cockpit drill?",
+      "options": {
+        "opt1": "Check that all mirrors are correctly aligned.",
+        "opt2": "Check that all required handles are washed and sterilized.",
+        "opt3": "Check that all passenger seats are in upright position."
+      }
+    },
+    "ru": {
+      "question": "Что из перечисленного должен сделать водитель при выполнении проверки кабины (cockpit drill)?",
+      "options": {
+        "opt1": "Проверить правильность регулировки всех зеркал.",
+        "opt2": "Проверить, вымыты и простерилизованы ли все необходимые ручки.",
+        "opt3": "Проверить, находятся ли все пассажирские сиденья в вертикальном положении."
+      }
+    },
+    "stats": {
+      "timesCorrect": 0,
+      "timesWrong": 0,
+      "isProblematic": false,
+      "lastAttemptCorrect": null
+    }
+  },
+  {
+    "id": "2",
+    "correctOptionId": "opt2",
+    "en": {
+      "question": "Which of the following must a driver check when carrying out a bus cockpit drill?",
+      "options": {
+        "opt1": "That the driver seat is free of cuts and marks.",
+        "opt2": "That the windscreen washer, wipers, demister and horn are operating correctly.",
+        "opt3": "That the tyres are free of cuts, properly inflated and have a minimum of 1.6 mm tread depth."
+      }
+    },
+    "ru": {
+      "question": "Что из перечисленного должен проверить водитель при осмотре кабины автобуса?",
+      "options": {
+        "opt1": "Что на сиденье водителя нет порезов и следов.",
+        "opt2": "Что стеклоомыватель, стеклоочистители, обдув стекла и звуковой сигнал работают исправно.",
+        "opt3": "Что на шинах нет порезов, они правильно накачаны и имеют глубину протектора не менее 1,6 мм."
+      }
+    },
+    "stats": {
+      "timesCorrect": 0,
+      "timesWrong": 0,
+      "isProblematic": false,
+      "lastAttemptCorrect": null
+    }
+  },
+  {
+    "id": "3",
+    "correctOptionId": "opt3",
+    "en": {
+      "question": "Which of the following is an essential interior PSV walk-around check required on a bus?",
+      "options": {
+        "opt1": "Entertainment system functioning, windows clean and free of graffiti.",
+        "opt2": "Seats are comfortable, head restraints tilt, armrests are adjustable and comfortable.",
+        "opt3": "Passenger safety belts, seats, handrails, walkways, lighting and luggage racks are in good condition."
+      }
+    },
+    "ru": {
+      "question": "Что из перечисленного является обязательной проверкой внутреннего состояния пассажирского транспорта (PSV) в автобусе?",
+      "options": {
+        "opt1": "Работа развлекательной системы, окна чистые и без граффити.",
+        "opt2": "Сиденья удобные, подголовники наклоняются, подлокотники регулируются и удобны.",
+        "opt3": "Ремни безопасности пассажиров, сиденья, поручни, проходы, освещение и багажные полки находятся в хорошем состоянии."
+      }
+    },
+    "stats": {
+      "timesCorrect": 0,
+      "timesWrong": 0,
+      "isProblematic": false,
+      "lastAttemptCorrect": null
+    }
+  },
+  {
+    "id": "4",
+    "correctOptionId": "opt2",
+    "en": {
+      "question": "How can a driver reduce speed without using the footbrake?",
+      "options": {
+        "opt1": "By pressing the clutch pedal.",
+        "opt2": "By engaging the retarder.",
+        "opt3": "By shifting gears upwards.",
+        "opt4": "By applying the diff-lock."
+      }
+    },
+    "ru": {
+      "question": "Как водитель может снизить скорость, не используя ножной тормоз?",
+      "options": {
+        "opt1": "Нажав на педаль сцепления.",
+        "opt2": "Задействовав ретардер (вспомогательный тормоз).",
+        "opt3": "Переключив передачу вверх.",
+        "opt4": "Включив блокировку дифференциала."
+      }
+    },
+    "stats": {
+      "timesCorrect": 0,
+      "timesWrong": 0,
+      "isProblematic": false,
+      "lastAttemptCorrect": null
+    }
+  },
+  {
+    "id": "5",
+    "correctOptionId": "opt1",
+    "en": {
+      "question": "Which of the following is included in the driver's cockpit drill?",
+      "options": {
+        "opt1": "Ensure proper adjustment of the driver's seat.",
+        "opt2": "Securing passenger overhead luggage compartments.",
+        "opt3": "Ensure proper adjustment of passenger seats."
+      }
+    },
+    "ru": {
+      "question": "Что из перечисленного входит в проверку кабины водителя?",
+      "options": {
+        "opt1": "Обеспечить правильную регулировку водительского сиденья.",
+        "opt2": "Закрепление пассажирских верхних багажных полок.",
+        "opt3": "Обеспечить правильную регулировку пассажирских сидений."
+      }
+    },
+    "stats": {
+      "timesCorrect": 0,
+      "timesWrong": 0,
+      "isProblematic": false,
+      "lastAttemptCorrect": null
+    }
+  },
+  {
+    "id": "6",
+    "correctOptionId": "opt3",
+    "en": {
+      "question": "What warning device in the vehicle cab would indicate a sudden drop in air pressure?",
+      "options": {
+        "opt1": "The hazard lights would come on.",
+        "opt2": "A blue dashboard light would illuminate.",
+        "opt3": "A loud buzzer would sound."
+      }
+    },
+    "ru": {
+      "question": "Какое предупреждающее устройство в кабине автомобиля указывает на резкое падение давления воздуха?",
+      "options": {
+        "opt1": "Включится аварийная сигнализация.",
+        "opt2": "Загорится синий индикатор на приборной панели.",
+        "opt3": "Прозвучит громкий зуммер."
+      }
+    },
+    "stats": {
+      "timesCorrect": 0,
+      "timesWrong": 0,
+      "isProblematic": false,
+      "lastAttemptCorrect": null
+    }
+  },
+  {
+    "id": "7",
+    "correctOptionId": "opt2",
+    "en": {
+      "question": "Which of the following is most likely to cause a driver to experience aching shoulders, arms and back after a long drive?",
+      "options": {
+        "opt1": "Information overload.",
+        "opt2": "Poor posture.",
+        "opt3": "Poor visibility."
+      }
+    },
+    "ru": {
+      "question": "Что из перечисленного наиболее вероятно вызовет у водителя боль в плечах, руках и спине после длительной поездки?",
+      "options": {
+        "opt1": "Информационная перегрузка.",
+        "opt2": "Неправильная осанка (поза).",
+        "opt3": "Плохая видимость."
+      }
+    },
+    "stats": {
+      "timesCorrect": 0,
+      "timesWrong": 0,
+      "isProblematic": false,
+      "lastAttemptCorrect": null
+    }
+  },
+  {
+    "id": "8",
+    "correctOptionId": "opt2",
+    "en": {
+      "question": "When using the accelerator, how can a driver help reduce the vehicle's fuel consumption?",
+      "options": {
+        "opt1": "A driver should accelerate smoothly only when the vehicle is laden.",
+        "opt2": "A driver should accelerate smoothly to reach and maintain the appropriate speed.",
+        "opt3": "A driver should accelerate quickly to reach the appropriate speed and then ease off to maintain pace."
+      }
+    },
+    "ru": {
+      "question": "Как водитель может снизить расход топлива при использовании педали акселератора?",
+      "options": {
+        "opt1": "Водитель должен плавно разгоняться только при загруженном автомобиле.",
+        "opt2": "Водитель должен разгоняться плавно, чтобы достичь и поддерживать соответствующую скорость.",
+        "opt3": "Водитель должен быстро разгоняться до нужной скорости, а затем отпускать педаль для поддержания темпа."
+      }
+    },
+    "stats": {
+      "timesCorrect": 0,
+      "timesWrong": 0,
+      "isProblematic": false,
+      "lastAttemptCorrect": null
+    }
+  },
+  {
+    "id": "9",
+    "correctOptionId": "opt3",
+    "en": {
+      "question": "What records must be produced by a driver to an enforcement officer at a roadside inspection?",
+      "options": {
+        "opt1": "Company digital cards.",
+        "opt2": "Digital tachograph workshop card.",
+        "opt3": "Any manual records used by the driver for the 28 calendar days immediately preceding that day.",
+        "opt4": "Any manual records used by any driver of the vehicle for the 28 calendar days immediately preceding that day."
+      }
+    },
+    "ru": {
+      "question": "Какие записи водитель должен предъявить инспектору при проверке на дороге?",
+      "options": {
+        "opt1": "Цифровые карты компании.",
+        "opt2": "Карту мастерской цифрового тахографа.",
+        "opt3": "Любые ручные записи, использовавшиеся водителем за предшествующие 28 календарных дней.",
+        "opt4": "Любые ручные записи, использовавшиеся любым водителем транспортного средства за предшествующие 28 календарных дней."
+      }
+    },
+    "stats": {
+      "timesCorrect": 0,
+      "timesWrong": 0,
+      "isProblematic": false,
+      "lastAttemptCorrect": null
+    }
+  },
+  {
+    "id": "10",
+    "correctOptionId": "opt3",
+    "en": {
+      "question": "What should a driver do with a driver card that has malfunctioned?",
+      "options": {
+        "opt1": "Dispose of it safely.",
+        "opt2": "Retain it to recover any stored data on the card.",
+        "opt3": "Return it to the Road Safety Authority.",
+        "opt4": "Return it to An Garda Síochána."
+      }
+    },
+    "ru": {
+      "question": "Что должен сделать водитель с неисправной картой водителя?",
+      "options": {
+        "opt1": "Безопасно утилизировать её.",
+        "opt2": "Сохранить её для восстановления сохраненных данных.",
+        "opt3": "Вернуть её в Управление по безопасности дорожного движения (RSA).",
+        "opt4": "Вернуть её в полицию (An Garda Síochána)."
+      }
+    },
+    "stats": {
+      "timesCorrect": 0,
+      "timesWrong": 0,
+      "isProblematic": false,
+      "lastAttemptCorrect": null
+    }
+  }
+]

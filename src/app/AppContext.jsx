@@ -36,8 +36,15 @@ export function AppProvider({ children }) {
   }, [toast]);
 
   useEffect(() => {
-    if (localStorage.getItem(STORAGE_KEY)) return;
+    if (!localStorage.getItem(STORAGE_KEY)) loadSampleCards();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
+  function notify(message, type = "success") {
+    setToast({ message, type });
+  }
+
+  async function loadSampleCards() {
     if (!import.meta.env.PROD) {
       notify(
         "Тестовые карточки не загружаются в локальном режиме. Загрузите карточки вручную.",
@@ -46,28 +53,21 @@ export function AppProvider({ children }) {
       return;
     }
 
-    (async () => {
-      try {
-        const response = await fetch(SAMPLE_CARDS_URL);
-        if (!response.ok) throw new Error("файл sample.json не найден");
-        const result = parseImportedCards(JSON.parse(await response.text()));
-        if (!result.cards.length)
-          throw new Error("файл sample.json не содержит карточек");
-        setCards(result.cards);
-        saveCards(result.cards);
-        notify(`Загружены тестовые карточки: ${result.cards.length}.`);
-      } catch (error) {
-        notify(
-          `Не удалось загрузить тестовые карточки: ${error.message}.`,
-          "error",
-        );
-      }
-    })();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  function notify(message, type = "success") {
-    setToast({ message, type });
+    try {
+      const response = await fetch(SAMPLE_CARDS_URL);
+      if (!response.ok) throw new Error("файл sample.json не найден");
+      const result = parseImportedCards(JSON.parse(await response.text()));
+      if (!result.cards.length)
+        throw new Error("файл sample.json не содержит карточек");
+      setCards(result.cards);
+      saveCards(result.cards);
+      notify(`Загружены тестовые карточки: ${result.cards.length}.`);
+    } catch (error) {
+      notify(
+        `Не удалось загрузить тестовые карточки: ${error.message}.`,
+        "error",
+      );
+    }
   }
 
   function updateCards(nextCards) {
@@ -251,6 +251,7 @@ export function AppProvider({ children }) {
         importFiles,
         exportCards,
         deleteAllCards,
+        loadSampleCards,
         startQuiz,
         answerQuiz,
         nextQuestion,

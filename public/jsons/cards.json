@@ -1,0 +1,101 @@
+[{
+    "correctOptionId": "opt1",
+    "en": {
+        "question": "In which of the following situations is overtaking on the left permitted?",
+        "options": {
+            "opt1": "The overtaking driver has signalled that they intend to turn left.",
+            "opt2": "The vehicle in front in the right-hand lane is moving more slowly.",
+            "opt3": "Overtaking on the left is never permitted.",
+            "opt4": "There is sufficient room to overtake and return to the right-hand lane."
+        }
+    },
+    "ru": {
+        "question": "В какой из следующих ситуаций разрешен обгон (объезд) слева?",
+        "options": {
+            "opt1": "Обгоняющий водитель подал сигнал о намерении повернуть налево.",
+            "opt2": "Транспортное средство впереди в правой полосе движется медленнее.",
+            "opt3": "Обгон слева никогда не разрешается.",
+            "opt4": "Имеется достаточно места для обгона и возвращения в правую полосу."
+        }
+    }
+}, {
+    "correctOptionId": "opt4",
+    "en": {
+        "question": "What do flashing amber beacons on an oncoming vehicle alert a driver to?",
+        "options": {
+            "opt1": "That the oncoming vehicle is an emergency vehicle.",
+            "opt2": "That the oncoming vehicle is a military vehicle.",
+            "opt3": "That the oncoming vehicle is fast moving.",
+            "opt4": "That the oncoming vehicle may be slow moving or extra wide."
+        }
+    },
+    "ru": {
+        "question": "О чем предупреждают водителя проблесковые маячки желтого (оранжевого) цвета на встречном транспортном средстве?",
+        "options": {
+            "opt1": "О том, что встречное транспортное средство является автомобилем экстренных служб.",
+            "opt2": "О том, что встречное транспортное средство является военным.",
+            "opt3": "О том, что встречное транспортное средство движется быстро.",
+            "opt4": "О том, что встречное транспортное средство может быть крупногабаритным или медленно движущимся."
+        }
+    }
+}, {
+    "correctOptionId": "opt1",
+    "en": {
+        "question": "What should a driver do when they get a puncture while driving?",
+        "options": {
+            "opt1": "Stop at a safe place and change the wheel.",
+            "opt2": "If on a motorway, stop and change the wheel immediately.",
+            "opt3": "Continue on your journey and arrange for repair when convenient.",
+            "opt4": "Maintain speed until a place to change the wheel is identified."
+        }
+    },
+    "ru": {
+        "question": "Что должен сделать водитель при проколе колеса во время движения?",
+        "options": {
+            "opt1": "Остановиться в безопасном месте и заменить колесо.",
+            "opt2": "На автомагистрали немедленно остановиться и заменить колесо.",
+            "opt3": "Продолжить поездку и организовать ремонт, когда будет удобно.",
+            "opt4": "Сохранять скорость до тех пор, пока не будет найдено место для замены колеса."
+        }
+    }
+}, {
+    "correctOptionId": "opt4",
+    "en": {
+        "question": "When stopped at traffic lights and the green light comes on, what should a driver do?",
+        "options": {
+            "opt1": "Move off slowly and then check the mirrors.",
+            "opt2": "Accelerate at a greater rate than other drivers so as to facilitate overtaking.",
+            "opt3": "Move off quickly and then check the mirrors.",
+            "opt4": "Check that other road users have cleared the junction and move off with care."
+        }
+    },
+    "ru": {
+        "question": "Что должен сделать водитель, стоящий на светофоре, когда загорается зеленый свет?",
+        "options": {
+            "opt1": "Медленно тронуться, а затем проверить зеркала.",
+            "opt2": "Ускориться быстрее других водителей, чтобы облегчить обгон.",
+            "opt3": "Быстро тронуться, а затем проверить зеркала.",
+            "opt4": "Убедиться, что другие участники дорожного движения освободили перекресток, и осторожно начать движение."
+        }
+    }
+}, {
+    "correctOptionId": "opt4",
+    "en": {
+        "question": "When driving on a national road is it permitted to drive on the hard shoulder in order to allow faster-moving traffic to overtake?",
+        "options": {
+            "opt1": "Only when a truck or bus wants to overtake.",
+            "opt2": "Only when driving on a dual carriageway.",
+            "opt3": "No, except when driving on a '2-plus-1 road'.",
+            "opt4": "Yes, temporarily when the hard shoulder is clear and it is safe to drive there."
+        }
+    },
+    "ru": {
+        "question": "Разрешено ли при движении по дороге национального значения выезжать на обочину, чтобы пропустить более быстрый транспорт?",
+        "options": {
+            "opt1": "Только если обгнать хочет грузовик или автобус.",
+            "opt2": "Только при движении по дороге с двухсторонним разделенным движением.",
+            "opt3": "Нет, за исключением движения по дороге типа «2-плюс-1».",
+            "opt4": "Да, временно, если обочина свободна и движение по ней безопасно."
+        }
+    }
+}]

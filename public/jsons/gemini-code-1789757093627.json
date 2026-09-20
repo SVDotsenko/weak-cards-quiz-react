@@ -1,0 +1,278 @@
+[
+  {
+    "id": "21",
+    "correctOptionId": "opt1",
+    "en": {
+      "question": "Who enforces the licencing provisions of the Road Transport Acts?",
+      "options": {
+        "opt1": "The Road Safety Authority and An Garda Síochána.",
+        "opt2": "The European Union and An Garda Síochána.",
+        "opt3": "The Department of Transport."
+      }
+    },
+    "ru": {
+      "question": "Кто обеспечивает соблюдение лицензионных положений Законов о автомобильном транспорте (Road Transport Acts)?",
+      "options": {
+        "opt1": "Управление по безопасности дорожного движения (RSA) и полиция (An Garda Síochána).",
+        "opt2": "Европейский Союз и полиция (An Garda Síochána).",
+        "opt3": "Министерство транспорта."
+      }
+    },
+    "stats": {
+      "timesCorrect": 0,
+      "timesWrong": 0,
+      "isProblematic": false,
+      "lastAttemptCorrect": null
+    }
+  },
+  {
+    "id": "22",
+    "correctOptionId": "opt2",
+    "en": {
+      "question": "Which of the following organisations is responsible for enforcing EU and national transport legislation on the licencing of road haulage and passenger operators?",
+      "options": {
+        "opt1": "The Department of Transport.",
+        "opt2": "The Road Safety Authority.",
+        "opt3": "The European Union.",
+        "opt4": "The local authorities."
+      }
+    },
+    "ru": {
+      "question": "Какая из следующих организаций отвечает за обеспечение соблюдения законодательства ЕС и национального законодательства о лицензировании грузовых и пассажирских автоперевозчиков?",
+      "options": {
+        "opt1": "Министерство транспорта.",
+        "opt2": "Управление по безопасности дорожного движения (RSA).",
+        "opt3": "Европейский Союз.",
+        "opt4": "Местные органы власти."
+      }
+    },
+    "stats": {
+      "timesCorrect": 0,
+      "timesWrong": 0,
+      "isProblematic": false,
+      "lastAttemptCorrect": null
+    }
+  },
+  {
+    "id": "23",
+    "correctOptionId": "opt4",
+    "en": {
+      "question": "A Category (D1E) licence is required to drive which of the following vehicles?",
+      "options": {
+        "opt1": "A vehicle that carries less than 8 passengers excluding the driver, towing a trailer, where the combined Maximum Authorised Mass (MAM) is 12,000 kg or more.",
+        "opt2": "A vehicle that carries more than 8 passengers excluding the driver, towing a trailer, where the combined Maximum Authorised Mass (MAM) is 750 kg or less.",
+        "opt3": "A vehicle that carries 9-16 passengers excluding the driver, towing a trailer, where the combined Maximum Authorised Mass (MAM) is 750 kg or less.",
+        "opt4": "A vehicle that carries 9-16 passengers excluding the driver, towing a trailer, where the combined Maximum Authorised Mass (MAM) is 12,000 kg or less."
+      }
+    },
+    "ru": {
+      "question": "Лицензия категории (D1E) требуется для управления каким из следующих транспортных средств?",
+      "options": {
+        "opt1": "Транспортным средством, перевозящим менее 8 пассажиров (не считая водителя), с прицепом, при разрешенной максимальной массе (MAM) 12 000 кг и более.",
+        "opt2": "Транспортным средством, перевозящим более 8 пассажиров (не считая водителя), с прицепом, при разрешенной максимальной массе (MAM) 750 кг и менее.",
+        "opt3": "Транспортным средством, перевозящим 9–16 пассажиров (не считая водителя), с прицепом, при разрешенной максимальной массе (MAM) 750 кг и менее.",
+        "opt4": "Транспортным средством, перевозящим 9–16 пассажиров (не считая водителя), с прицепом, при разрешенной максимальной массе (MAM) 12 000 кг и менее."
+      }
+    },
+    "stats": {
+      "timesCorrect": 0,
+      "timesWrong": 0,
+      "isProblematic": false,
+      "lastAttemptCorrect": null
+    }
+  },
+  {
+    "id": "24",
+    "correctOptionId": "opt3",
+    "en": {
+      "question": "Must the holder of a Category D learner permit who holds a Category D1 full licence display L plates on a bus or coach while taking driving lessons?",
+      "options": {
+        "opt1": "Only when sitting the driving test.",
+        "opt2": "No.",
+        "opt3": "Yes, at all times."
+      }
+    },
+    "ru": {
+      "question": "Обязан ли обладатель ученического разрешения (learner permit) категории D, имеющий полные права категории D1, устанавливать знаки 'L' (ученик) на автобус во время уроков вождения?",
+      "options": {
+        "opt1": "Только во время сдачи экзамена по вождению.",
+        "opt2": "Нет.",
+        "opt3": "Да, всегда."
+      }
+    },
+    "stats": {
+      "timesCorrect": 0,
+      "timesWrong": 0,
+      "isProblematic": false,
+      "lastAttemptCorrect": null
+    }
+  },
+  {
+    "id": "25",
+    "correctOptionId": "opt1",
+    "en": {
+      "question": "Which of the following operators requires a Road Passenger Transport Operator's Licence?",
+      "options": {
+        "opt1": "An operator that is carrying 9 or more passengers for hire in a vehicle constructed to do so.",
+        "opt2": "An operator that is carrying passengers in a vehicle constructed to do so.",
+        "opt3": "An operator that is carrying any number of passengers for hire in a vehicle constructed to do so.",
+        "opt4": "An operator that is carrying goods for hire in a vehicle constructed to do so."
+      }
+    },
+    "ru": {
+      "question": "Какому из следующих операторов требуется лицензия оператора пассажирских автоперевозок (Road Passenger Transport Operator's Licence)?",
+      "options": {
+        "opt1": "Оператору, перевозящему 9 и более пассажиров за плату/по найму на предназначенном для этого ТС.",
+        "opt2": "Оператору, перевозящему пассажиров на предназначенном для этого ТС.",
+        "opt3": "Оператору, перевозящему любое количество пассажиров за плату/по найму на предназначенном для этого ТС.",
+        "opt4": "Оператору, перевозящему грузы за плату/по найму на предназначенном для этого ТС."
+      }
+    },
+    "stats": {
+      "timesCorrect": 0,
+      "timesWrong": 0,
+      "isProblematic": false,
+      "lastAttemptCorrect": null
+    }
+  },
+  {
+    "id": "26",
+    "correctOptionId": "opt1",
+    "en": {
+      "question": "Who is required to hold a Road Passenger Transport Operator's Licence?",
+      "options": {
+        "opt1": "A person or firm with a business involved in transporting persons by road for reward.",
+        "opt2": "A bus or coach driver.",
+        "opt3": "A bus or coach driver of a vehicle with passenger capacity for more than 16 passengers.",
+        "opt4": "A sports club or charity involved in transporting by road persons other than for reward."
+      }
+    },
+    "ru": {
+      "question": "Кто обязан иметь лицензию оператора пассажирских автоперевозок (Road Passenger Transport Operator's Licence)?",
+      "options": {
+        "opt1": "Физическое или юридическое лицо, занимающееся коммерческими перевозками пассажиров автомобильным транспортом за вознаграждение.",
+        "opt2": "Водитель автобуса.",
+        "opt3": "Водитель автобуса с пассажировместимостью более 16 человек.",
+        "opt4": "Спортивный клуб или благотворительная организация, перевозящая людей не за вознаграждение."
+      }
+    },
+    "stats": {
+      "timesCorrect": 0,
+      "timesWrong": 0,
+      "isProblematic": false,
+      "lastAttemptCorrect": null
+    }
+  },
+  {
+    "id": "27",
+    "correctOptionId": "opt3",
+    "en": {
+      "question": "To apply for a Category (D1E) learner permit an individual must already hold a licence in which of the following categories?",
+      "options": {
+        "opt1": "A.",
+        "opt2": "B.",
+        "opt3": "D1.",
+        "opt4": "C."
+      }
+    },
+    "ru": {
+      "question": "Чтобы подать заявку на получение ученического разрешения категории (D1E), кандидат уже должен иметь водительское удостоверение какой категории?",
+      "options": {
+        "opt1": "A.",
+        "opt2": "B.",
+        "opt3": "D1.",
+        "opt4": "C."
+      }
+    },
+    "stats": {
+      "timesCorrect": 0,
+      "timesWrong": 0,
+      "isProblematic": false,
+      "lastAttemptCorrect": null
+    }
+  },
+  {
+    "id": "28",
+    "correctOptionId": "opt1",
+    "en": {
+      "question": "What is the minimum amount of periodic refresher training that the holder of a bus driver CPC card must do, each year, to maintain their qualification?",
+      "options": {
+        "opt1": "Seven hours.",
+        "opt2": "Fourteen hours.",
+        "opt3": "Thirty-five hours.",
+        "opt4": "Eleven hours."
+      }
+    },
+    "ru": {
+      "question": "Каков минимальный ежегодный объем периодического обучения должен пройти владелец карты квалификации водителя автобуса (CPC) для поддержания квалификации?",
+      "options": {
+        "opt1": "Семь часов.",
+        "opt2": "Четырнадцать часов.",
+        "opt3": "Тридцать пять часов.",
+        "opt4": "Одиннадцать часов."
+      }
+    },
+    "stats": {
+      "timesCorrect": 0,
+      "timesWrong": 0,
+      "isProblematic": false,
+      "lastAttemptCorrect": null
+    }
+  },
+  {
+    "id": "29",
+    "correctOptionId": "opt1",
+    "en": {
+      "question": "Which of the following is a condition of the 12 day rule for international coach journey?",
+      "options": {
+        "opt1": "The driver is on a single trip journey.",
+        "opt2": "The driver must take a break at least once in 12 hours.",
+        "opt3": "The driver may work as many hours as required in that period.",
+        "opt4": "The driver is not required to take a break after 4.5 hours."
+      }
+    },
+    "ru": {
+      "question": "Какое из следующих условий является обязательным для 'правила 12 дней' при международных автобусных поездках?",
+      "options": {
+        "opt1": "Водитель совершает однократную (разовую) поездку.",
+        "opt2": "Водитель должен делать перерыв как минимум один раз в 12 часов.",
+        "opt3": "Водитель может работать столько часов, сколько потребуется в этот период.",
+        "opt4": "Водитель не обязан делать перерыв после 4.5 часов вождения."
+      }
+    },
+    "stats": {
+      "timesCorrect": 0,
+      "timesWrong": 0,
+      "isProblematic": false,
+      "lastAttemptCorrect": null
+    }
+  },
+  {
+    "id": "30",
+    "correctOptionId": "opt2",
+    "en": {
+      "question": "A fixed charge notice contains all of the following information EXCEPT...",
+      "options": {
+        "opt1": "the amount to be paid.",
+        "opt2": "when to appear in court.",
+        "opt3": "the details of the offence.",
+        "opt4": "when the fine must be paid."
+      }
+    },
+    "ru": {
+      "question": "Уведомление о фиксированном штрафе (Fixed charge notice) содержит всю следующую информацию, ЗА ИСКЛЮЧЕНИЕМ...",
+      "options": {
+        "opt1": "суммы к оплате.",
+        "opt2": "даты и времени явки в суд.",
+        "opt3": "деталей правонарушения.",
+        "opt4": "сроков оплаты штрафа."
+      }
+    },
+    "stats": {
+      "timesCorrect": 0,
+      "timesWrong": 0,
+      "isProblematic": false,
+      "lastAttemptCorrect": null
+    }
+  }
+]
