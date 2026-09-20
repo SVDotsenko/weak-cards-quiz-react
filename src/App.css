@@ -78,10 +78,18 @@ button:disabled {
 }
 
 .main-navigation {
+  position: relative;
+  z-index: 10;
+  margin-bottom: 24px;
+}
+
+.menu-list {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-bottom: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .main-navigation a,
@@ -100,6 +108,40 @@ button:disabled {
 .main-navigation a.active {
   background: var(--blue);
   color: #fff;
+}
+
+.burger-button {
+  display: none;
+  position: relative;
+  z-index: 12;
+  width: 46px;
+  min-height: 42px;
+  padding: 0 12px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.burger-button span {
+  display: block;
+  width: 21px;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+  transition: transform .25s ease, opacity .25s ease;
+}
+
+.menu--open .burger-button span:first-child {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.menu--open .burger-button span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu--open .burger-button span:last-child {
+  transform: translateY(-7px) rotate(-45deg);
 }
 
 h1,
@@ -401,13 +443,51 @@ main {
   background: var(--red);
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .app-shell {
     padding: 20px 12px 36px;
   }
 
   .panel {
     padding: 16px;
+  }
+
+  .burger-button {
+    display: inline-flex;
+  }
+
+  .menu-list {
+    position: fixed;
+    inset: 0;
+    z-index: 11;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    width: 100vw;
+    max-height: calc(100dvh - 20px);
+    overflow-y: auto;
+    padding: 88px 20px 32px;
+    background: var(--paper);
+    transform: translateY(-100%);
+    visibility: hidden;
+    pointer-events: none;
+    transition: transform .25s ease, visibility 0s linear .25s;
+  }
+
+  .menu-list li {
+    flex: 0 0 auto;
+  }
+
+  .menu-list a {
+    width: 100%;
+  }
+
+  .menu--open .menu-list {
+    transform: translateY(0);
+    visibility: visible;
+    pointer-events: auto;
+    transition: transform .25s ease;
   }
 
   .control-row>*,
