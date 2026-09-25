@@ -281,6 +281,42 @@ main {
   overflow-wrap: anywhere;
 }
 
+@keyframes language-content-fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes language-content-fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+::view-transition-old(*) {
+  animation: language-content-fade-out .42s ease both;
+}
+
+::view-transition-new(*) {
+  animation: language-content-fade-in .42s ease both;
+}
+
+::view-transition-group(root),
+::view-transition-image-pair(root),
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none;
+  }
+}
+
 .language-button {
   flex-shrink: 0;
   min-height: 34px;

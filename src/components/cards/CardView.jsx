@@ -1,25 +1,43 @@
-import { useState } from "react";
+import { useId, useRef, useState } from "react";
 import { useApp } from "../../app/useApp";
+import { startViewTransition } from "../../app/viewTransition";
 
 function CardView({ card, review, selectedOptionId }) {
   const { t } = useApp();
+  const transitionId = useId().replace(/[^a-zA-Z0-9_-]/g, "");
+  const questionRef = useRef(null);
+  const optionsRef = useRef(null);
   const [language, setLanguage] = useState("en");
   const content = card[language] || card.en;
 
   return (
     <article className="card-item">
       <div className="card-header">
-        <h3>{content.question}</h3>
+        <h3 ref={questionRef}>{content.question}</h3>
         <button
           className="language-button"
-          onClick={() => setLanguage(language === "en" ? "ru" : "en")}
+          onClick={() =>
+            startViewTransition(
+              () => setLanguage(language === "en" ? "ru" : "en"),
+              [
+                {
+                  element: questionRef.current,
+                  name: `card-question-${transitionId}`,
+                },
+                {
+                  element: optionsRef.current,
+                  name: `card-options-${transitionId}`,
+                },
+              ],
+            )
+          }
         >
           {language === "en"
             ? t("cards.cardLanguage")
             : t("cards.cardLanguageEnglish")}
         </button>
       </div>
-      <ul className="option-list">
+      <ul ref={optionsRef} className="option-list">
         {Object.entries(content.options).map(([id, text]) => (
           <li
             key={id}

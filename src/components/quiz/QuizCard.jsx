@@ -1,8 +1,12 @@
-import { useState } from "react";
+import { useId, useRef, useState } from "react";
 import { useApp } from "../../app/useApp";
+import { startViewTransition } from "../../app/viewTransition";
 
 function QuizCard({ card, quiz, setQuiz, onAnswer, onNext }) {
   const { t } = useApp();
+  const transitionId = useId().replace(/[^a-zA-Z0-9_-]/g, "");
+  const questionRef = useRef(null);
+  const optionsRef = useRef(null);
   const [language, setLanguage] = useState("en");
   const content = card[language] || card.en;
   const options = card.shuffledOptions[language] || [];
@@ -10,17 +14,31 @@ function QuizCard({ card, quiz, setQuiz, onAnswer, onNext }) {
   return (
     <div className="quiz-card">
       <div className="card-header">
-        <h3>{content.question}</h3>
+        <h3 ref={questionRef}>{content.question}</h3>
         <button
           className="language-button"
-          onClick={() => setLanguage(language === "en" ? "ru" : "en")}
+          onClick={() =>
+            startViewTransition(
+              () => setLanguage(language === "en" ? "ru" : "en"),
+              [
+                {
+                  element: questionRef.current,
+                  name: `quiz-question-${transitionId}`,
+                },
+                {
+                  element: optionsRef.current,
+                  name: `quiz-options-${transitionId}`,
+                },
+              ],
+            )
+          }
         >
           {language === "en"
             ? t("cards.cardLanguage")
             : t("cards.cardLanguageEnglish")}
         </button>
       </div>
-      <div className="quiz-options">
+      <div ref={optionsRef} className="quiz-options">
         {options.map(([id, text]) => (
           <label
             key={id}
