@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useApp } from "../../app/useApp";
 
-function CardView({ card, index, review, selectedOptionId }) {
+function CardView({ card, review, selectedOptionId }) {
+  const { t } = useApp();
   const [language, setLanguage] = useState("en");
   const content = card[language] || card.en;
 
@@ -12,7 +14,9 @@ function CardView({ card, index, review, selectedOptionId }) {
           className="language-button"
           onClick={() => setLanguage(language === "en" ? "ru" : "en")}
         >
-          {language === "en" ? "Русский" : "English"}
+          {language === "en"
+            ? t("cards.cardLanguage")
+            : t("cards.cardLanguageEnglish")}
         </button>
       </div>
       <ul className="option-list">
@@ -27,8 +31,8 @@ function CardView({ card, index, review, selectedOptionId }) {
       </ul>
       {!review && (
         <div className="card-meta">
-          <span>Ошибок: {card.stats.timesWrong}</span>
-          <span>Изучений: {card.stats.timesShown}</span>
+          <span>{t("cards.mistakes", { count: card.stats.timesWrong })}</span>
+          <span>{t("cards.studied", { count: card.stats.timesShown })}</span>
         </div>
       )}
     </article>

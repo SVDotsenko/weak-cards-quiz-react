@@ -1,12 +1,14 @@
 import { calculateOverallStats } from "../../cards";
+import { useApp } from "../../app/useApp";
 
 function Stats({ cards, visible }) {
+  const { t } = useApp();
   const stats = calculateOverallStats(cards);
   const values = [
-    ["Всего карточек", stats.totalCount],
-    ["Проблемных", stats.problemCount],
-    ["Изучено", `${stats.studiedCount} (${stats.studiedPercent}%)`],
-    ["Отвечено", stats.answeredCount],
+    [t("stats.total"), stats.totalCount],
+    [t("stats.problems"), stats.problemCount],
+    [t("stats.studied"), `${stats.studiedCount} (${stats.studiedPercent}%)`],
+    [t("stats.answered"), stats.answeredCount],
   ];
 
   return (

@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useApp } from "../../app/useApp";
 
 function QuizCard({ card, quiz, setQuiz, onAnswer, onNext }) {
+  const { t } = useApp();
   const [language, setLanguage] = useState("en");
   const content = card[language] || card.en;
   const options = card.shuffledOptions[language] || [];
@@ -13,7 +15,9 @@ function QuizCard({ card, quiz, setQuiz, onAnswer, onNext }) {
           className="language-button"
           onClick={() => setLanguage(language === "en" ? "ru" : "en")}
         >
-          {language === "en" ? "Русский" : "English"}
+          {language === "en"
+            ? t("cards.cardLanguage")
+            : t("cards.cardLanguageEnglish")}
         </button>
       </div>
       <div className="quiz-options">
@@ -45,7 +49,7 @@ function QuizCard({ card, quiz, setQuiz, onAnswer, onNext }) {
         disabled={!quiz.selected && !quiz.answered}
         onClick={quiz.answered ? onNext : onAnswer}
       >
-        {quiz.answered ? "Следующая карточка" : "Ответить"}
+        {quiz.answered ? t("quiz.next") : t("quiz.answer")}
       </button>
     </div>
   );

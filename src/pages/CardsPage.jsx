@@ -13,6 +13,7 @@ function CardsPage() {
     resetStats,
     deleteAllCards,
     loadSampleCards,
+    t,
   } = useApp();
   const visibleCards = sortCardsForDisplay(filterCards(cards, filter));
 
@@ -21,7 +22,7 @@ function CardsPage() {
       loadSampleCards();
       return;
     }
-    if (window.confirm("Удалить все карточки безвозвратно?")) {
+    if (window.confirm(t("cards.confirmDelete"))) {
       deleteAllCards();
     }
   }
@@ -37,29 +38,25 @@ function CardsPage() {
               multiple
               onChange={(event) => importFiles([...event.target.files])}
             />
-            Загрузить JSON-файл
+            {t("cards.import")}
           </label>
           <button onClick={exportCards} disabled={!cards.length}>
-            Экспортировать JSON
+            {t("cards.export")}
           </button>
           <button onClick={resetStats} disabled={!cards.length}>
-            Обнулить статистику
+            {t("cards.resetStats")}
           </button>
           <button onClick={handleDeleteOrLoadSample}>
-            {cards.length
-              ? "Удалить все карточки"
-              : "Загрузить тестовые карточки"}
+            {cards.length ? t("cards.deleteAll") : t("cards.loadSample")}
           </button>
           <button
             type="button"
             title={
-              filter === "all"
-                ? "Показать карточки с ошибками"
-                : "Показать все карточки"
+              filter === "all" ? t("cards.showErrors") : t("cards.showAll")
             }
             onClick={() => setFilter(filter === "all" ? "errors" : "all")}
           >
-            {filter === "all" ? "Все карточки" : "С ошибками"}
+            {filter === "all" ? t("cards.showAll") : t("cards.errors")}
           </button>
         </div>
       </section>
@@ -81,9 +78,7 @@ function CardsPage() {
             ))}
           </div>
         ) : (
-          <div className="empty-state">
-            Карточки не найдены. Загрузите JSON-файл, чтобы начать.
-          </div>
+          <div className="empty-state">{t("cards.empty")}</div>
         )}
       </section>
     </>

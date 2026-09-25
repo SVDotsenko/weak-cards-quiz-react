@@ -1,14 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import { NavLink } from "react-router-dom";
-
-const links = [
-  ["/cards", "Все карточки"],
-  ["/quiz", "Тест"],
-  ["/settings", "Настройки"],
-  ["/about", "О приложении"],
-];
+import { useApp } from "../app/useApp";
 
 function Navigation() {
+  const { t } = useApp();
   const [isOpen, setIsOpen] = useState(false);
   const navigationRef = useRef(null);
   const burgerButtonRef = useRef(null);
@@ -60,17 +55,26 @@ function Navigation() {
     }
   };
 
+  const links = [
+    ["/cards", t("navigation.cards")],
+    ["/quiz", t("navigation.quiz")],
+    ["/settings", t("navigation.settings")],
+    ["/about", t("navigation.about")],
+  ];
+
   return (
     <nav
       ref={navigationRef}
       className={`main-navigation menu${isOpen ? " menu--open" : ""}`}
-      aria-label="Основное меню"
+      aria-label={t("navigation.menu")}
     >
       <button
         ref={burgerButtonRef}
         className="burger-button"
         type="button"
-        aria-label={isOpen ? "Закрыть меню" : "Открыть меню"}
+        aria-label={
+          isOpen ? t("navigation.closeMenu") : t("navigation.openMenu")
+        }
         aria-expanded={isOpen}
         aria-controls="mobile-menu"
         onClick={() => setIsOpen((open) => !open)}

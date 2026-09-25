@@ -35,6 +35,8 @@ The `Export JSON` button downloads all saved cards. The exported file contains t
 
 The app has no backend. Cards, quiz statistics, and the selected batch size are stored in the browser's `localStorage`, which persists across browser and computer restarts.
 
+The interface language is also stored in `localStorage`. English is selected by default and Russian can be enabled in Settings. The interface language is independent from the English/Russian language switch inside each card.
+
 This data is available only in the browser on the device where it was created. To move cards and their accumulated statistics to another device, export the cards to JSON and upload that file on the other device.
 
 ## JSON format

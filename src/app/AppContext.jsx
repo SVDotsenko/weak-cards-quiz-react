@@ -15,6 +15,12 @@ import {
   saveCards,
   shuffleOptions,
 } from "../cards";
+import {
+  DEFAULT_UI_LANGUAGE,
+  UI_LANGUAGE_STORAGE_KEY,
+  getTranslator,
+  normalizeUILanguage,
+} from "../i18n";
 import { AppContext } from "./context";
 
 const SAMPLE_CARDS_URL = `${import.meta.env.BASE_URL}sample.json`;
@@ -33,6 +39,12 @@ export function AppProvider({ children }) {
   const [startRoute, setStartRoute] = useState(() =>
     normalizeStartRoute(localStorage.getItem(START_ROUTE_STORAGE_KEY)),
   );
+  const [uiLanguage, setUILanguage] = useState(() =>
+    normalizeUILanguage(
+      localStorage.getItem(UI_LANGUAGE_STORAGE_KEY) || DEFAULT_UI_LANGUAGE,
+    ),
+  );
+  const t = getTranslator(uiLanguage);
 
   useEffect(() => {
     if (!toast) return undefined;
@@ -51,25 +63,21 @@ export function AppProvider({ children }) {
 
   async function loadSampleCards() {
     if (!import.meta.env.PROD) {
-      notify(
-        "Тестовые карточки не загружаются в локальном режиме. Загрузите карточки вручную.",
-        "error",
-      );
+      notify(t("notifications.localSampleUnavailable"), "error");
       return;
     }
 
     try {
       const response = await fetch(SAMPLE_CARDS_URL);
-      if (!response.ok) throw new Error("файл sample.json не найден");
+      if (!response.ok) throw new Error(t("notifications.sampleNotFound"));
       const result = parseImportedCards(JSON.parse(await response.text()));
-      if (!result.cards.length)
-        throw new Error("файл sample.json не содержит карточек");
+      if (!result.cards.length) throw new Error(t("notifications.sampleEmpty"));
       setCards(result.cards);
       saveCards(result.cards);
-      notify(`Загружены тестовые карточки: ${result.cards.length}.`);
+      notify(t("notifications.sampleLoaded", { count: result.cards.length }));
     } catch (error) {
       notify(
-        `Не удалось загрузить тестовые карточки: ${error.message}.`,
+        t("notifications.sampleLoadFailed", { error: error.message }),
         "error",
       );
     }
@@ -84,12 +92,12 @@ export function AppProvider({ children }) {
     clearStoredCards();
     setCards([]);
     setQuiz(null);
-    notify("Все карточки удалены.");
+    notify(t("notifications.cardsDeleted"));
   }
 
   async function importFiles(files) {
     if (!files.length) {
-      notify("Выберите хотя бы один JSON-файл перед загрузкой.", "error");
+      notify(t("notifications.selectFile"), "error");
       return;
     }
 
@@ -102,11 +110,13 @@ export function AppProvider({ children }) {
         const parsed = JSON.parse(await file.text());
         const result = parseImportedCards(parsed);
         if (!result.cards.length)
-          throw new Error("файл не содержит корректных карточек");
+          throw new Error(t("notifications.invalidFile"));
         imported.push(...result.cards);
         invalidTitles.push(...result.invalidTitles);
       } catch (error) {
-        fileErrors.push(`${file.name || "Безымянный файл"}: ${error.message}`);
+        fileErrors.push(
+          `${file.name || t("notifications.unnamedFile")}: ${error.message}`,
+        );
       }
     }
 
@@ -114,13 +124,19 @@ export function AppProvider({ children }) {
     updateCards(merged.cards);
 
     const details = [
-      `Добавлено: ${merged.cards.length - cards.length}`,
-      `Дублей пропущено: ${merged.duplicateTitles.length}`,
+      t("notifications.added", { count: merged.cards.length - cards.length }),
+      t("notifications.duplicates", {
+        count: merged.duplicateTitles.length,
+      }),
     ];
     if (invalidTitles.length)
-      details.push(`Не удалось импортировать: ${invalidTitles.join("; ")}`);
+      details.push(
+        t("notifications.invalidCards", { titles: invalidTitles.join("; ") }),
+      );
     if (fileErrors.length)
-      details.push(`Ошибки файлов: ${fileErrors.join("; ")}`);
+      details.push(
+        t("notifications.fileErrors", { errors: fileErrors.join("; ") }),
+      );
     notify(
       details.join(". "),
       fileErrors.length || invalidTitles.length ? "error" : "success",
@@ -137,13 +153,13 @@ export function AppProvider({ children }) {
     link.download = "weak-cards-quiz.json";
     link.click();
     URL.revokeObjectURL(url);
-    notify(`Экспортировано карточек: ${cards.length}.`);
+    notify(t("notifications.exported", { count: cards.length }));
   }
 
   function startQuiz() {
     const batch = buildQuizBatch(cards, Math.min(batchSize, cards.length));
     if (!batch.length) {
-      notify("Нет карточек для формирования батча.", "error");
+      notify(t("notifications.noCardsForQuiz"), "error");
       return false;
     }
 
@@ -179,7 +195,7 @@ export function AppProvider({ children }) {
 
   function answerQuiz() {
     if (!quiz.selected) {
-      notify("Выберите вариант ответа.", "error");
+      notify(t("notifications.selectAnswer"), "error");
       return;
     }
 
@@ -234,7 +250,7 @@ export function AppProvider({ children }) {
     }));
     updateCards(updated);
     setQuiz(null);
-    notify("Статистика обнулена.");
+    notify(t("notifications.statsReset"));
   }
 
   function changeBatchSize(value) {
@@ -249,6 +265,12 @@ export function AppProvider({ children }) {
     localStorage.setItem(START_ROUTE_STORAGE_KEY, nextRoute);
   }
 
+  function changeUILanguage(value) {
+    const nextLanguage = normalizeUILanguage(value);
+    setUILanguage(nextLanguage);
+    localStorage.setItem(UI_LANGUAGE_STORAGE_KEY, nextLanguage);
+  }
+
   return (
     <AppContext.Provider
       value={{
@@ -259,6 +281,9 @@ export function AppProvider({ children }) {
         changeBatchSize,
         startRoute,
         changeStartRoute,
+        uiLanguage,
+        changeUILanguage,
+        t,
         notify,
         toast,
         quiz,

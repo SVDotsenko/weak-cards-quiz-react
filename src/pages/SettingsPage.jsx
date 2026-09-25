@@ -1,19 +1,19 @@
 import { useApp } from "../app/useApp";
 
-const START_ROUTE_CHOICES = [
-  { value: "/cards", label: "Все карточки" },
-  { value: "/quiz", label: "Тест" },
-  { value: "/about", label: "О приложении" },
-];
-
 function SettingsPage() {
-  const { startRoute, changeStartRoute } = useApp();
+  const { startRoute, changeStartRoute, uiLanguage, changeUILanguage, t } =
+    useApp();
+  const startRouteChoices = [
+    { value: "/cards", label: t("settings.routeCards") },
+    { value: "/quiz", label: t("settings.routeQuiz") },
+    { value: "/about", label: t("settings.routeAbout") },
+  ];
 
   return (
     <section className="panel page-copy">
       <fieldset className="setting-radio-group">
-        <legend>Страница при входе в приложение</legend>
-        {START_ROUTE_CHOICES.map(({ value, label }) => (
+        <legend>{t("settings.startPage")}</legend>
+        {startRouteChoices.map(({ value, label }) => (
           <label key={value}>
             <input
               type="radio"
@@ -25,6 +25,29 @@ function SettingsPage() {
             {label}
           </label>
         ))}
+      </fieldset>
+      <fieldset className="setting-radio-group">
+        <legend>{t("settings.interfaceLanguage")}</legend>
+        <label>
+          <input
+            type="radio"
+            name="ui-language"
+            value="en"
+            checked={uiLanguage === "en"}
+            onChange={() => changeUILanguage("en")}
+          />
+          {t("settings.english")}
+        </label>
+        <label>
+          <input
+            type="radio"
+            name="ui-language"
+            value="ru"
+            checked={uiLanguage === "ru"}
+            onChange={() => changeUILanguage("ru")}
+          />
+          {t("settings.russian")}
+        </label>
       </fieldset>
     </section>
   );

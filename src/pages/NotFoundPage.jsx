@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom";
+import { useApp } from "../app/useApp";
 
 function NotFoundPage() {
+  const { t } = useApp();
   return (
     <section className="panel empty-state">
-      <h2>Страница не найдена</h2>
+      <h2>{t("notFound.title")}</h2>
       <Link className="button-link" to="/cards">
-        Вернуться к карточкам
+        {t("notFound.back")}
       </Link>
     </section>
   );

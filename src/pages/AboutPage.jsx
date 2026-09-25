@@ -1,6 +1,38 @@
 import { useApp } from "../app/useApp";
+import { getTranslationGroup } from "../i18n";
 
-const prompt = `Преобразуй вопросы на скриншотах в JSON для приложения тренировки карточек.
+const prompts = {
+  en: `Convert the questions in the screenshots into JSON for a flashcard practice app.
+
+Requirements:
+- Process no more than 15 cards. If there are more, create only the first 15.
+- Return only a valid JSON array without explanations, Markdown, or a json language block.
+- Create en and ru fields for every card. Each must contain question and options.
+- Keep the English text from the screenshot in en.question and en.options.
+- Translate the question and all answer options into Russian in ru.question and ru.options.
+- Use the same option keys in en.options and ru.options: opt1, opt2, opt3, and so on.
+- Set the correct option in correctOptionId, for example "opt2".
+- Do not invent or change the content. If the text or correct answer is unreadable, ask me for a clearer screenshot first.
+
+Format of one card:
+{
+  "correctOptionId": "opt1",
+  "en": {
+    "question": "Question in English",
+    "options": {
+      "opt1": "First answer",
+      "opt2": "Second answer"
+    }
+  },
+  "ru": {
+    "question": "Question translation",
+    "options": {
+      "opt1": "First answer translation",
+      "opt2": "Second answer translation"
+    }
+  }
+}`,
+  ru: `Преобразуй вопросы на скриншотах в JSON для приложения тренировки карточек.
 
 Требования:
 - Обработай не более 15 карточек. Если карточек больше, создай только первые 15.
@@ -29,92 +61,50 @@ const prompt = `Преобразуй вопросы на скриншотах в
       "opt2": "Второй ответ"
     }
   }
-}`;
+}`,
+};
 
 function AboutPage() {
-  const { notify } = useApp();
+  const { notify, uiLanguage } = useApp();
+  const about = getTranslationGroup(uiLanguage, "about");
+  const prompt = prompts[uiLanguage];
 
   async function copyPrompt() {
     try {
       await navigator.clipboard.writeText(prompt);
-      notify("Промпт успешно скопирован в буфер обмена.");
+      notify(about.promptCopied);
     } catch {
-      notify("Не удалось скопировать промпт в буфер обмена.", "error");
+      notify(about.promptCopyFailed, "error");
     }
   }
 
   return (
     <section className="panel page-copy">
-      <h3>Зачем создано это приложение?</h3>
-      <p>
-        Это приложение не заменяет официальное приложение для подготовки к
-        теоретическому тесту на вождение в Ирландии, а дополняет его. В
-        официальном приложении неудобно отбирать только проблемные карточки и
-        заниматься только по ним. Это приложение помогает решить эту задачу.
-      </p>
-      <h3>Для кого?</h3>
-      <p>
-        Для русскоязычных людей, которые готовятся к теоретическому тесту на
-        вождение в Ирландии и будут сдавать его на английском языке.
-      </p>
-      <h3>Как пользоваться?</h3>
+      <h3>{about.purposeTitle}</h3>
+      <p>{about.purpose}</p>
+      <h3>{about.audienceTitle}</h3>
+      <p>{about.audience}</p>
+      <h3>{about.usageTitle}</h3>
       <ol>
-        <li>Пройдите все вопросы в официальном приложении.</li>
+        {about.usage.map((item) => (
+          <li key={item}>{item}</li>
+        ))}
         <li>
-          Откройте вкладку <strong>Previously answered incorrectly</strong> — в
-          ней находятся вопросы, на которые вы ответили неправильно.
-        </li>
-        <li>Сделайте скриншоты всех этих проблемных вопросов.</li>
-        <li>
-          Передайте ИИ не более 15 карточек за один запрос вместе с промптом
-          ниже, чтобы он создал JSON-файл:
           <span className="prompt-block">
             <button type="button" onClick={copyPrompt}>
-              Копировать
+              {about.copyPrompt}
             </button>
             <pre>{prompt}</pre>
           </span>
         </li>
-        <li>Загрузите полученные JSON-файлы в это приложение.</li>
-        <li>Продолжайте тренировку только по проблемным вопросам.</li>
       </ol>
-      <h3>Основные возможности и принцип работы</h3>
+      <h3>{about.featuresTitle}</h3>
       <ul>
-        <li>
-          <strong>Защита от дубликатов.</strong> Приложение автоматически
-          проверяет новые карточки при загрузке. Проверка выполняется по тексту
-          вопроса и правильного ответа на английском языке. Если карточка уже
-          есть в приложении, повторно она добавлена не будет.
-        </li>
-        <li>
-          <strong>Приоритет сложных карточек.</strong> В первом тесте карточки
-          идут по порядку в выбранном количестве. После ответа приложение
-          показывает ошибки, правильные варианты и карточки, в которых был дан
-          неправильный ответ. В следующем тесте сначала появляются карточки с
-          ошибкой в последней попытке, а затем карточки, на которые вы ещё ни
-          разу не отвечали. Так тренировка постоянно фокусируется на вопросах,
-          которые пока сложнее всего запомнить.
-        </li>
-        <li>
-          <strong>Просмотр на русском языке.</strong> В любой карточке можно
-          переключиться на русский язык и посмотреть полный перевод вопроса и
-          вариантов ответа, чтобы точно понять смысл, а не угадывать его.
-        </li>
-        <li>
-          <strong>Случайный порядок вариантов.</strong> Перед каждым запуском
-          теста варианты ответов перемешиваются. Поэтому правильный ответ при
-          повторном прохождении той же карточки может находиться на другой
-          позиции, и запоминать нужно сам ответ, а не его расположение.
-        </li>
-        <li>
-          <strong>Локальное хранение данных.</strong> У приложения нет бэкенда:
-          карточки и статистика сохраняются в localStorage — постоянной памяти
-          браузера, которая сохраняется после перезагрузки компьютера. Поэтому
-          сохранённые карточки и статистика доступны только на том устройстве и
-          в том браузере, где вы проходите тест. Чтобы перенести их на другое
-          устройство, экспортируйте карточки в JSON-файл, а затем загрузите этот
-          файл в приложение на другом устройстве.
-        </li>
+        {about.features.map(([title, description]) => (
+          <li key={title}>
+            <strong>{title}.</strong> {description}
+          </li>
+        ))}
       </ul>
     </section>
   );

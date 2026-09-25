@@ -13,6 +13,7 @@ function QuizPage() {
     cards,
     batchSize,
     changeBatchSize,
+    t,
   } = useApp();
   const navigate = useNavigate();
 
@@ -31,9 +32,9 @@ function QuizPage() {
   if (!quiz)
     return (
       <section className="panel empty-state">
-        <p>Тест ещё не начат.</p>
+        <p>{t("quiz.notStarted")}</p>
         <label className="setting-field">
-          Размер батча
+          {t("quiz.batchSize")}
           <input
             type="number"
             min="1"
@@ -43,7 +44,7 @@ function QuizPage() {
           />
         </label>
         <button onClick={startQuiz} disabled={!cards.length}>
-          Начать тест
+          {t("quiz.start")}
         </button>
       </section>
     );
@@ -53,7 +54,10 @@ function QuizPage() {
     <section className="panel quiz-panel">
       <div className="panel-header">
         <span>
-          Карточка {quiz.index + 1} из {quiz.cards.length}
+          {t("quiz.card", {
+            current: quiz.index + 1,
+            total: quiz.cards.length,
+          })}
         </span>
       </div>
       <QuizCard
