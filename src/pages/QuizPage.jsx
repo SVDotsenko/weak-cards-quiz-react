@@ -35,31 +35,36 @@ function QuizPage() {
   if (!quiz)
     return (
       <section className="panel empty-state">
-        <p>{t("quiz.notStarted")}</p>
-        <label className="setting-field">
-          {t("quiz.batchSize")}
-          <input
-            type="number"
-            min="1"
-            max="100"
-            value={batchSize}
-            onChange={(event) => changeBatchSize(event.target.value)}
-          />
-        </label>
-        <button
-          onClick={() => startQuiz()}
-          disabled={!cards.length}
-          title={t("quiz.startTooltip")}
-        >
-          {t("quiz.start")}
-        </button>
-        <div className="quiz-mode-buttons">
-          <button onClick={() => startQuiz("problem")} disabled={!problemCount}>
-            {t("quiz.startProblems", { count: problemCount })}
-          </button>
-          <button onClick={() => startQuiz("errors")} disabled={!errorCount}>
-            {t("quiz.startErrors", { count: errorCount })}
-          </button>
+        <div className="quiz-launch-controls">
+          <div className="quiz-start-row">
+            <input
+              type="number"
+              min="1"
+              max="100"
+              value={batchSize}
+              onChange={(event) => changeBatchSize(event.target.value)}
+              aria-label={t("quiz.cardCount")}
+              title={t("quiz.cardCountTooltip")}
+            />
+            <button
+              onClick={() => startQuiz()}
+              disabled={!cards.length}
+              title={t("quiz.startTooltip")}
+            >
+              {t("quiz.start")}
+            </button>
+          </div>
+          <div className="quiz-mode-buttons">
+            <button
+              onClick={() => startQuiz("problem")}
+              disabled={!problemCount}
+            >
+              {t("quiz.startProblems", { count: problemCount })}
+            </button>
+            <button onClick={() => startQuiz("errors")} disabled={!errorCount}>
+              {t("quiz.startErrors", { count: errorCount })}
+            </button>
+          </div>
         </div>
       </section>
     );

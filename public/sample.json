@@ -941,10 +941,10 @@
       }
     },
     "stats": {
-      "timesShown": 0,
+      "timesShown": 1,
       "timesWrong": 0,
-      "lastAttemptCorrect": null,
-      "lastSelectedOptionId": null
+      "lastAttemptCorrect": true,
+      "lastSelectedOptionId": "opt4"
     }
   },
   {
@@ -968,10 +968,10 @@
       }
     },
     "stats": {
-      "timesShown": 0,
+      "timesShown": 1,
       "timesWrong": 0,
-      "lastAttemptCorrect": null,
-      "lastSelectedOptionId": null
+      "lastAttemptCorrect": true,
+      "lastSelectedOptionId": "opt3"
     }
   },
   {
@@ -995,10 +995,10 @@
       }
     },
     "stats": {
-      "timesShown": 0,
+      "timesShown": 1,
       "timesWrong": 0,
-      "lastAttemptCorrect": null,
-      "lastSelectedOptionId": null
+      "lastAttemptCorrect": true,
+      "lastSelectedOptionId": "opt1"
     }
   },
   {
@@ -1020,10 +1020,10 @@
       }
     },
     "stats": {
-      "timesShown": 0,
+      "timesShown": 1,
       "timesWrong": 0,
-      "lastAttemptCorrect": null,
-      "lastSelectedOptionId": null
+      "lastAttemptCorrect": true,
+      "lastSelectedOptionId": "opt1"
     }
   },
   {
@@ -1047,10 +1047,10 @@
       }
     },
     "stats": {
-      "timesShown": 0,
-      "timesWrong": 0,
-      "lastAttemptCorrect": null,
-      "lastSelectedOptionId": null
+      "timesShown": 2,
+      "timesWrong": 1,
+      "lastAttemptCorrect": true,
+      "lastSelectedOptionId": "opt4"
     }
   },
   {
@@ -1072,10 +1072,10 @@
       }
     },
     "stats": {
-      "timesShown": 0,
+      "timesShown": 1,
       "timesWrong": 0,
-      "lastAttemptCorrect": null,
-      "lastSelectedOptionId": null
+      "lastAttemptCorrect": true,
+      "lastSelectedOptionId": "opt1"
     }
   },
   {
@@ -1099,10 +1099,10 @@
       }
     },
     "stats": {
-      "timesShown": 0,
+      "timesShown": 1,
       "timesWrong": 0,
-      "lastAttemptCorrect": null,
-      "lastSelectedOptionId": null
+      "lastAttemptCorrect": true,
+      "lastSelectedOptionId": "opt1"
     }
   },
   {
@@ -1126,10 +1126,10 @@
       }
     },
     "stats": {
-      "timesShown": 0,
+      "timesShown": 1,
       "timesWrong": 0,
-      "lastAttemptCorrect": null,
-      "lastSelectedOptionId": null
+      "lastAttemptCorrect": true,
+      "lastSelectedOptionId": "opt1"
     }
   },
   {
@@ -1151,10 +1151,10 @@
       }
     },
     "stats": {
-      "timesShown": 0,
+      "timesShown": 1,
       "timesWrong": 0,
-      "lastAttemptCorrect": null,
-      "lastSelectedOptionId": null
+      "lastAttemptCorrect": true,
+      "lastSelectedOptionId": "opt2"
     }
   },
   {
@@ -1178,10 +1178,10 @@
       }
     },
     "stats": {
-      "timesShown": 0,
+      "timesShown": 1,
       "timesWrong": 0,
-      "lastAttemptCorrect": null,
-      "lastSelectedOptionId": null
+      "lastAttemptCorrect": true,
+      "lastSelectedOptionId": "opt1"
     }
   },
   {
