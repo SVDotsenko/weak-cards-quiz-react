@@ -46,7 +46,11 @@ function QuizPage() {
             onChange={(event) => changeBatchSize(event.target.value)}
           />
         </label>
-        <button onClick={() => startQuiz()} disabled={!cards.length}>
+        <button
+          onClick={() => startQuiz()}
+          disabled={!cards.length}
+          title={t("quiz.startTooltip")}
+        >
           {t("quiz.start")}
         </button>
         <div className="quiz-mode-buttons">
