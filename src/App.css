@@ -419,6 +419,17 @@ main {
   color: var(--muted);
 }
 
+.quiz-mode-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: max-content;
+  max-width: 100%;
+  gap: 8px;
+  margin-top: 12px;
+  margin-inline: auto;
+}
+
 .page-copy {
   width: 100%;
 }

@@ -12,6 +12,7 @@ import {
   normalizeBatchSize,
   normalizeStartRoute,
   parseImportedCards,
+  filterCards,
   saveCards,
   shuffleOptions,
 } from "../cards";
@@ -156,8 +157,12 @@ export function AppProvider({ children }) {
     notify(t("notifications.exported", { count: cards.length }));
   }
 
-  function startQuiz() {
-    const batch = buildQuizBatch(cards, Math.min(batchSize, cards.length));
+  function startQuiz(mode = "all") {
+    const candidates = mode === "all" ? cards : filterCards(cards, mode);
+    const batch =
+      mode === "all"
+        ? buildQuizBatch(candidates, Math.min(batchSize, candidates.length))
+        : candidates;
     if (!batch.length) {
       notify(t("notifications.noCardsForQuiz"), "error");
       return false;

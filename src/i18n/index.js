@@ -8,7 +8,7 @@ const translations = {
         settings: { title: "Settings", startPage: "Page to open on launch", interfaceLanguage: "Interface language", english: "English", russian: "Russian", routeCards: "All cards", routeQuiz: "Quiz", routeAbout: "About" },
         cards: { import: "Import JSON", export: "Export JSON", resetStats: "Reset statistics", deleteAll: "Delete all cards", loadSample: "Load sample cards", showErrors: "Show {count} cards with errors", showAll: "Show all cards", errors: "With errors", empty: "No cards found. Import a JSON file to get started.", confirmDelete: "Delete all cards permanently?", cardLanguage: "Russian", cardLanguageEnglish: "English", mistakes: "Mistakes: {count}", studied: "Times studied: {count}" },
         stats: { total: "Total cards", problems: "Problem cards", studied: "Studied", mistakes: "Cards with mistakes" },
-        quiz: { notStarted: "The quiz has not started yet.", batchSize: "Batch size", start: "Start quiz", card: "Card {current} of {total}", answer: "Answer", next: "Next card" },
+        quiz: { notStarted: "The quiz has not started yet.", batchSize: "Batch size", start: "Start quiz", startProblems: "Problem cards ({count})", startErrors: "Cards with mistakes ({count})", card: "Card {current} of {total}", answer: "Answer", next: "Next card" },
         about: {
             purposeTitle: "Why was this app created?",
             purpose: "This app does not replace the official app for preparing for the Irish driving theory test. It complements it by making it easy to select only difficult cards and practise with them.",
@@ -28,7 +28,7 @@ const translations = {
         settings: { title: "Настройки", startPage: "Страница при входе в приложение", interfaceLanguage: "Язык интерфейса", english: "English", russian: "Русский", routeCards: "Все карточки", routeQuiz: "Тест", routeAbout: "О приложении" },
         cards: { import: "Загрузить JSON-файл", export: "Экспортировать JSON", resetStats: "Обнулить статистику", deleteAll: "Удалить все карточки", loadSample: "Загрузить тестовые карточки", showErrors: "Показать карточки с ошибками: {count}", showAll: "Показать все карточки", errors: "С ошибками", empty: "Карточки не найдены. Загрузите JSON-файл, чтобы начать.", confirmDelete: "Удалить все карточки безвозвратно?", cardLanguage: "Русский", cardLanguageEnglish: "English", mistakes: "Ошибок: {count}", studied: "Изучений: {count}" },
         stats: { total: "Всего карточек", problems: "Проблемных", studied: "Изучено", mistakes: "Карточек с ошибками" },
-        quiz: { notStarted: "Тест ещё не начат.", batchSize: "Размер батча", start: "Начать тест", card: "Карточка {current} из {total}", answer: "Ответить", next: "Следующая карточка" },
+        quiz: { notStarted: "Тест ещё не начат.", batchSize: "Размер батча", start: "Начать тест", startProblems: "Только проблемные ({count})", startErrors: "Только карточки с ошибками ({count})", card: "Карточка {current} из {total}", answer: "Ответить", next: "Следующая карточка" },
         about: {
             purposeTitle: "Зачем создано это приложение?",
             purpose: "Это приложение не заменяет официальное приложение для подготовки к теоретическому тесту на вождение в Ирландии, а дополняет его. В нём удобно отбирать только сложные карточки и заниматься по ним.",

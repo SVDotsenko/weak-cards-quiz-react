@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useApp } from "../app/useApp";
+import { filterCards } from "../cards";
 import QuizCard from "../components/quiz/QuizCard";
 
 function QuizPage() {
@@ -16,6 +17,8 @@ function QuizPage() {
     t,
   } = useApp();
   const navigate = useNavigate();
+  const problemCount = filterCards(cards, "problem").length;
+  const errorCount = filterCards(cards, "errors").length;
 
   // при заходе на маршрут всегда начинать с экрана "Начать тест", а не с результата прошлого прохода
   useEffect(() => {
@@ -43,9 +46,17 @@ function QuizPage() {
             onChange={(event) => changeBatchSize(event.target.value)}
           />
         </label>
-        <button onClick={startQuiz} disabled={!cards.length}>
+        <button onClick={() => startQuiz()} disabled={!cards.length}>
           {t("quiz.start")}
         </button>
+        <div className="quiz-mode-buttons">
+          <button onClick={() => startQuiz("problem")} disabled={!problemCount}>
+            {t("quiz.startProblems", { count: problemCount })}
+          </button>
+          <button onClick={() => startQuiz("errors")} disabled={!errorCount}>
+            {t("quiz.startErrors", { count: errorCount })}
+          </button>
+        </div>
       </section>
     );
 
