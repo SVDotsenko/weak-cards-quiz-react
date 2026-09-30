@@ -615,6 +615,40 @@ main {
   }
 }
 
+@media (max-width: 480px) {
+  .stats-grid>div {
+    align-self: start;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    padding: 4px;
+  }
+
+  .stats-grid strong {
+    justify-self: end;
+  }
+
+  .stats-grid>div:first-child strong {
+    grid-column: 2;
+    justify-self: center;
+  }
+
+  .stats-grid>div:first-child {
+    grid-template-columns: max-content minmax(0, 1fr);
+  }
+
+  .stats-grid>div:first-child span {
+    grid-column: 1;
+  }
+
+  .stats-grid>div:nth-child(n + 2) {
+    grid-template-columns: max-content minmax(0, 1fr);
+  }
+
+  .stats-grid>div:nth-child(n + 2) strong {
+    justify-self: center;
+  }
+}
+
 .hero {
   position: relative;
 
