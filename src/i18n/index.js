@@ -6,7 +6,7 @@ const translations = {
     en: {
         navigation: { cards: "All cards", quiz: "Quiz", settings: "Settings", about: "About", menu: "Main menu", openMenu: "Open menu", closeMenu: "Close menu" },
         settings: { title: "Settings", startPage: "Page to open on launch", interfaceLanguage: "Interface language", english: "English", russian: "Russian", routeCards: "All cards", routeQuiz: "Quiz", routeAbout: "About" },
-        cards: { import: "Import JSON", export: "Export JSON", resetStats: "Reset statistics", deleteAll: "Delete all cards", loadSample: "Load sample cards", showErrors: "Show cards with errors", showAll: "Show all cards", errors: "With errors", empty: "No cards found. Import a JSON file to get started.", confirmDelete: "Delete all cards permanently?", cardLanguage: "Russian", cardLanguageEnglish: "English", mistakes: "Mistakes: {count}", studied: "Times studied: {count}" },
+        cards: { import: "Import JSON", export: "Export JSON", resetStats: "Reset statistics", deleteAll: "Delete all cards", loadSample: "Load sample cards", showErrors: "Show {count} cards with errors", showAll: "Show all cards", errors: "With errors", empty: "No cards found. Import a JSON file to get started.", confirmDelete: "Delete all cards permanently?", cardLanguage: "Russian", cardLanguageEnglish: "English", mistakes: "Mistakes: {count}", studied: "Times studied: {count}" },
         stats: { total: "Total cards", problems: "Problem cards", studied: "Studied", answered: "Answered" },
         quiz: { notStarted: "The quiz has not started yet.", batchSize: "Batch size", start: "Start quiz", card: "Card {current} of {total}", answer: "Answer", next: "Next card" },
         about: {
@@ -26,7 +26,7 @@ const translations = {
     ru: {
         navigation: { cards: "Все карточки", quiz: "Тест", settings: "Настройки", about: "О приложении", menu: "Основное меню", openMenu: "Открыть меню", closeMenu: "Закрыть меню" },
         settings: { title: "Настройки", startPage: "Страница при входе в приложение", interfaceLanguage: "Язык интерфейса", english: "English", russian: "Русский", routeCards: "Все карточки", routeQuiz: "Тест", routeAbout: "О приложении" },
-        cards: { import: "Загрузить JSON-файл", export: "Экспортировать JSON", resetStats: "Обнулить статистику", deleteAll: "Удалить все карточки", loadSample: "Загрузить тестовые карточки", showErrors: "Показать карточки с ошибками", showAll: "Показать все карточки", errors: "С ошибками", empty: "Карточки не найдены. Загрузите JSON-файл, чтобы начать.", confirmDelete: "Удалить все карточки безвозвратно?", cardLanguage: "Русский", cardLanguageEnglish: "English", mistakes: "Ошибок: {count}", studied: "Изучений: {count}" },
+        cards: { import: "Загрузить JSON-файл", export: "Экспортировать JSON", resetStats: "Обнулить статистику", deleteAll: "Удалить все карточки", loadSample: "Загрузить тестовые карточки", showErrors: "Показать {count} карточки с ошибками", showAll: "Показать все карточки", errors: "С ошибками", empty: "Карточки не найдены. Загрузите JSON-файл, чтобы начать.", confirmDelete: "Удалить все карточки безвозвратно?", cardLanguage: "Русский", cardLanguageEnglish: "English", mistakes: "Ошибок: {count}", studied: "Изучений: {count}" },
         stats: { total: "Всего карточек", problems: "Проблемных", studied: "Изучено", answered: "Отвечено" },
         quiz: { notStarted: "Тест ещё не начат.", batchSize: "Размер батча", start: "Начать тест", card: "Карточка {current} из {total}", answer: "Ответить", next: "Следующая карточка" },
         about: {

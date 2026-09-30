@@ -16,6 +16,7 @@ function CardsPage() {
     t,
   } = useApp();
   const visibleCards = sortCardsForDisplay(filterCards(cards, filter));
+  const errorCardCount = filterCards(cards, "errors").length;
 
   function handleDeleteOrLoadSample() {
     if (!cards.length) {
@@ -52,7 +53,9 @@ function CardsPage() {
           <button
             type="button"
             title={
-              filter === "all" ? t("cards.showErrors") : t("cards.showAll")
+              filter === "all"
+                ? t("cards.showErrors", { count: errorCardCount })
+                : t("cards.showAll")
             }
             onClick={() => setFilter(filter === "all" ? "errors" : "all")}
           >
