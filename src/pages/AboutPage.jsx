@@ -2,66 +2,70 @@ import { useApp } from "../app/useApp";
 import { getTranslationGroup } from "../i18n";
 
 const prompts = {
-  en: `Convert the questions in the screenshots into JSON for a flashcard practice app.
+  en: `Analyze the provided screenshots from the Driving Theory Test app (Ireland, RSA).
 
-Requirements:
-- Process no more than 15 cards. If there are more, create only the first 15.
-- Return only a valid JSON array without explanations, Markdown, or a json language block.
-- Create en and ru fields for every card. Each must contain question and options.
-- Keep the English text from the screenshot in en.question and en.options.
-- Translate the question and all answer options into Russian in ru.question and ru.options.
-- Use the same option keys in en.options and ru.options: opt1, opt2, opt3, and so on.
-- Set the correct option in correctOptionId, for example "opt2".
-- Do not invent or change the content. If the text or correct answer is unreadable, ask me for a clearer screenshot first.
+Create and provide a ready-to-download data.json file containing the analysis results.
 
-Format of one card:
-{
-  "correctOptionId": "opt1",
-  "en": {
-    "question": "Question in English",
-    "options": {
-      "opt1": "First answer",
-      "opt2": "Second answer"
-    }
-  },
-  "ru": {
-    "question": "Question translation",
-    "options": {
-      "opt1": "First answer translation",
-      "opt2": "Second answer translation"
-    }
-  }
-}`,
-  ru: `Преобразуй вопросы на скриншотах в JSON для приложения тренировки карточек.
+Data structure in the JSON file:
 
-Требования:
-- Обработай не более 15 карточек. Если карточек больше, создай только первые 15.
-- Верни только корректный JSON-массив без пояснений, Markdown и блока с языком json.
-- Для каждой карточки создай поля en и ru. В каждом из них должны быть question и options.
-- В en.question и en.options сохрани английский текст со скриншота.
-- Переведи вопрос и все варианты ответа на русский язык в ru.question и ru.options.
-- Используй одинаковые ключи вариантов в en.options и ru.options: opt1, opt2, opt3 и так далее.
-- Укажи правильный вариант в correctOptionId, например "opt2".
-- Не придумывай и не меняй содержание вопросов и вариантов. Если текст или правильный ответ на скриншоте не читается, сначала попроси меня прислать более чёткий скриншот.
+- "correctOptionId": ID of the correct answer ("opt1", "opt2", "opt3", "opt4", etc.).
+- "en": an object with the question and answer options in English (as shown in the screenshot).
+- "ru": an object with a high-quality Russian translation of the question and answer options.
 
-Формат одной карточки:
-{
-  "correctOptionId": "opt1",
-  "en": {
-    "question": "Question in English",
-    "options": {
-      "opt1": "First answer",
-      "opt2": "Second answer"
-    }
-  },
-  "ru": {
-    "question": "Перевод вопроса",
-    "options": {
-      "opt1": "Первый ответ",
-      "opt2": "Второй ответ"
+File structure template:
+[
+  {
+    "correctOptionId": "opt1",
+    "en": {
+      "question": "English question text?",
+      "options": {
+        "opt1": "Option 1",
+        "opt2": "Option 2",
+        "opt3": "Option 3"
+      }
+    },
+    "ru": {
+      "question": "Текст вопроса на русском?",
+      "options": {
+        "opt1": "Вариант 1",
+        "opt2": "Вариант 2",
+        "opt3": "Вариант 3"
+      }
     }
   }
-}`,
+]`,
+  ru: `Проанализируй предоставленные скриншоты из приложения Driving Theory Test (Ирландия, RSA).
+
+Сформируй и предоставь для скачивания готовый файл data.json с результатами анализа.
+
+Структура данных внутри JSON-файла:
+
+- "correctOptionId": ID правильного ответа ("opt1", "opt2", "opt3", "opt4" и т. д.).
+- "en": объект с вопросом и вариантами ответов на английском языке (как на скриншоте).
+- "ru": объект с качественным переводом вопроса и вариантов ответов на русский язык.
+
+Шаблон структуры файла:
+[
+  {
+    "correctOptionId": "opt1",
+    "en": {
+      "question": "English question text?",
+      "options": {
+        "opt1": "Option 1",
+        "opt2": "Option 2",
+        "opt3": "Option 3"
+      }
+    },
+    "ru": {
+      "question": "Текст вопроса на русском?",
+      "options": {
+        "opt1": "Вариант 1",
+        "opt2": "Вариант 2",
+        "opt3": "Вариант 3"
+      }
+    }
+  }
+]`,
 };
 
 function AboutPage() {
