@@ -1,0 +1,16 @@
+{
+  "chat.tools.terminal.autoApprove": {
+    "/^npx eslint src$/": {
+      "approve": true,
+      "matchCommandLine": true
+    },
+    "/^npm run build; npx eslint src$/": {
+      "approve": true,
+      "matchCommandLine": true
+    },
+    "/^npm install react-router-dom$/": {
+      "approve": true,
+      "matchCommandLine": true
+    }
+  }
+}

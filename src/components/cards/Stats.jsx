@@ -5,10 +5,12 @@ function Stats({ cards, visible }) {
   const { t } = useApp();
   const stats = calculateOverallStats(cards);
   const values = [
-    [t("stats.total"), stats.totalCount],
+    [
+      t("stats.studied"),
+      `${stats.studiedCount} / ${stats.totalCount} (${stats.studiedPercent}%)`,
+    ],
     [t("stats.problems"), stats.problemCount],
-    [t("stats.studied"), `${stats.studiedCount} (${stats.studiedPercent}%)`],
-    [t("stats.answered"), stats.answeredCount],
+    [t("stats.mistakes"), stats.mistakesCount],
   ];
 
   return (
