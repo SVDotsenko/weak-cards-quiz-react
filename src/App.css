@@ -615,6 +615,19 @@ main {
 }
 
 @media (max-width: 480px) {
+  .quiz-launch-controls {
+    width: 100%;
+  }
+
+  .quiz-start-row {
+    grid-template-columns: 80px minmax(0, 1fr);
+  }
+
+  .quiz-start-row>*,
+  .quiz-mode-buttons>* {
+    width: 100%;
+  }
+
   .quiz-action {
     width: 100%;
   }
