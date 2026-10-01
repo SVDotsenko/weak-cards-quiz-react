@@ -198,7 +198,6 @@ main {
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
   align-items: center;
   gap: clamp(1px, 1vw, 12px);
-  margin-bottom: 16px;
 }
 
 .control-row>* {
@@ -231,7 +230,7 @@ main {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
   gap: clamp(1px, 1vw, 10px);
-  margin: 18px 0;
+  margin-bottom: 18px;
   max-height: 180px;
   overflow: hidden;
   opacity: 1;
@@ -616,6 +615,10 @@ main {
 }
 
 @media (max-width: 480px) {
+  .quiz-action {
+    width: 100%;
+  }
+
   .stats-grid>div {
     align-self: start;
     grid-template-columns: minmax(0, 1fr) auto;
