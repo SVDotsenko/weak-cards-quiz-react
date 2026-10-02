@@ -50,6 +50,12 @@
   }
 }
 
+html {
+  /* reserve scrollbar space so its appearance doesn't shift layout width */
+  scrollbar-gutter: stable;
+  overflow-y: scroll;
+}
+
 body {
   margin: 0;
 }
