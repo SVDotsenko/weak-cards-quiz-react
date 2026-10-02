@@ -1,7 +1,6 @@
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useRef } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useApp } from "../app/useApp";
-import { filterCards } from "../cards";
 import QuizCard from "../components/quiz/QuizCard";
 
 function QuizPage() {
@@ -16,15 +15,22 @@ function QuizPage() {
     changeBatchSize,
     t,
   } = useApp();
+  const location = useLocation();
   const navigate = useNavigate();
-  const problemCount = filterCards(cards, "problem").length;
-  const errorCount = filterCards(cards, "errors").length;
+  const handledLaunchRef = useRef(false);
 
-  // при заходе на маршрут всегда начинать с экрана "Начать тест", а не с результата прошлого прохода
   useEffect(() => {
-    setQuiz(null);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    if (handledLaunchRef.current) return;
+    handledLaunchRef.current = true;
+
+    const requestedMode = location.state?.quizMode;
+    if (requestedMode === "problem" || requestedMode === "errors") {
+      startQuiz(requestedMode);
+      navigate(".", { replace: true, state: null });
+    } else {
+      setQuiz(null);
+    }
+  }, [location.state, navigate, setQuiz, startQuiz]);
 
   function handleNext() {
     const isLastQuestion = quiz.index >= quiz.cards.length - 1;
@@ -52,17 +58,6 @@ function QuizPage() {
               title={t("quiz.startTooltip")}
             >
               {t("quiz.start")}
-            </button>
-          </div>
-          <div className="quiz-mode-buttons">
-            <button
-              onClick={() => startQuiz("problem")}
-              disabled={!problemCount}
-            >
-              {t("quiz.startProblems", { count: problemCount })}
-            </button>
-            <button onClick={() => startQuiz("errors")} disabled={!errorCount}>
-              {t("quiz.startErrors", { count: errorCount })}
             </button>
           </div>
         </div>

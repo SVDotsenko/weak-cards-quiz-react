@@ -1,9 +1,11 @@
 import { filterCards, sortCardsForDisplay } from "../cards";
 import { useApp } from "../app/useApp";
+import { useNavigate } from "react-router-dom";
 import CardView from "../components/cards/CardView";
 import Stats from "../components/cards/Stats";
 
 function CardsPage() {
+  const navigate = useNavigate();
   const {
     cards,
     filter,
@@ -64,7 +66,11 @@ function CardsPage() {
         </div>
       </section>
       <section className="panel">
-        <Stats cards={cards} visible={filter === "all"} />
+        <Stats
+          cards={cards}
+          visible={filter === "all"}
+          onStudy={(mode) => navigate("/quiz", { state: { quizMode: mode } })}
+        />
         {visibleCards.length ? (
           <div className="cards-list">
             {visibleCards.map((card, index) => (
