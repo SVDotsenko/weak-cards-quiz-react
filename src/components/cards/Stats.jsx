@@ -1,34 +1,43 @@
 import { calculateOverallStats } from "../../cards";
 import { useApp } from "../../app/useApp";
 
-function Stats({ cards, visible, onStudy }) {
+function Stats({ cards, correctAnswersToLearn, filter, onFilterChange }) {
   const { t } = useApp();
-  const stats = calculateOverallStats(cards);
-  const values = [
-    {
-      label: t("stats.studied"),
-      value: `${stats.studiedCount} / ${stats.totalCount} (${stats.studiedPercent}%)`,
-    },
-    {
-      label: t("stats.problems"),
-      value: stats.problemCount,
-      mode: "problem",
-      tooltip: t("stats.problemsTooltip"),
-    },
-    {
-      label: t("stats.mistakes"),
-      value: stats.mistakesCount,
-      mode: "errors",
-      tooltip: t("stats.mistakesTooltip"),
-    },
-  ];
+  const stats = calculateOverallStats(cards, correctAnswersToLearn);
+  const ratio = (count, percent) =>
+    stats.totalCount ? `${count} / ${stats.totalCount} (${percent}%)` : "0 / 0";
+  const values = stats.isInitialPhase
+    ? [
+        {
+          label: t("stats.shown"),
+          value: ratio(stats.shownCount, stats.shownPercent),
+        },
+        {
+          label: t("stats.cardsWithErrors"),
+          value: stats.cardsWithErrorsCount,
+          mode: "errors",
+        },
+      ]
+    : [
+        {
+          label: t("stats.studied"),
+          value: ratio(stats.studiedCount, stats.studiedPercent),
+        },
+        {
+          label: t("stats.cardsWithErrors"),
+          value: stats.cardsWithErrorsCount,
+          mode: "errors",
+        },
+        {
+          label: t("stats.incorrectLastAnswer"),
+          value: stats.lastIncorrectCount,
+          mode: "problem",
+        },
+      ];
 
   return (
-    <div
-      className={`stats-grid ${visible ? "stats-grid--visible" : "stats-grid--hidden"}`}
-    >
-      {values.map(({ label, value, mode, tooltip }) => {
-        const canStudy = mode && value > 0;
+    <div className="stats-grid">
+      {values.map(({ label, value, mode }) => {
         const contents = (
           <>
             <span>{label}</span>
@@ -36,13 +45,13 @@ function Stats({ cards, visible, onStudy }) {
           </>
         );
 
-        return canStudy ? (
+        return mode ? (
           <button
             key={label}
             className="stats-grid__action"
             type="button"
-            title={tooltip}
-            onClick={() => onStudy(mode)}
+            aria-pressed={filter === mode}
+            onClick={() => onFilterChange(filter === mode ? "all" : mode)}
           >
             {contents}
           </button>

@@ -231,21 +231,6 @@ main {
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
   gap: clamp(1px, 1vw, 10px);
   margin-bottom: 18px;
-  max-height: 180px;
-  overflow: hidden;
-  opacity: 1;
-  transform: translateY(0);
-  transition: max-height .3s ease, margin .3s ease, opacity .25s ease, transform .3s ease, visibility .3s ease;
-  visibility: visible;
-}
-
-.stats-grid--hidden {
-  max-height: 0;
-  margin-block: 0;
-  opacity: 0;
-  transform: translateY(-20px);
-  visibility: hidden;
-  pointer-events: none;
 }
 
 .stats-grid>div {
@@ -482,14 +467,6 @@ main {
 
 .quiz-start-row button {
   min-width: 0;
-}
-
-.quiz-mode-buttons {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  width: 100%;
-  gap: 8px;
 }
 
 .page-copy {
@@ -863,4 +840,13 @@ main {
     right: 0;
     border-right-color: var(--border);
   }
+}
+
+.stats-grid__action[aria-pressed="true"] {
+  border-color: var(--blue);
+  background: #edf3ff;
+}
+
+.setting-field input[type="number"] {
+  width: 90px;
 }

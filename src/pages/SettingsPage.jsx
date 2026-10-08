@@ -1,8 +1,15 @@
 import { useApp } from "../app/useApp";
 
 function SettingsPage() {
-  const { startRoute, changeStartRoute, uiLanguage, changeUILanguage, t } =
-    useApp();
+  const {
+    startRoute,
+    changeStartRoute,
+    uiLanguage,
+    changeUILanguage,
+    correctAnswersToLearn,
+    changeCorrectAnswersToLearn,
+    t,
+  } = useApp();
   const startRouteChoices = [
     { value: "/cards", label: t("settings.routeCards") },
     { value: "/quiz", label: t("settings.routeQuiz") },
@@ -11,6 +18,16 @@ function SettingsPage() {
 
   return (
     <section className="panel page-copy">
+      <label className="setting-field">
+        <span>{t("settings.correctAnswersToLearn")}</span>
+        <input
+          type="number"
+          min="1"
+          step="1"
+          value={correctAnswersToLearn}
+          onChange={(event) => changeCorrectAnswersToLearn(event.target.value)}
+        />
+      </label>
       <fieldset className="setting-radio-group">
         <legend>{t("settings.startPage")}</legend>
         {startRouteChoices.map(({ value, label }) => (

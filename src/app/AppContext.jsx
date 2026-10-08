@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import {
   BATCH_SIZE_STORAGE_KEY,
+  CORRECT_TO_LEARN_STORAGE_KEY,
   DEFAULT_BATCH_SIZE,
   START_ROUTE_STORAGE_KEY,
   STORAGE_KEY,
@@ -10,9 +11,9 @@ import {
   getStoredCards,
   mergeUniqueImportedCards,
   normalizeBatchSize,
+  normalizeCorrectToLearn,
   normalizeStartRoute,
   parseImportedCards,
-  filterCards,
   saveCards,
   shuffleOptions,
 } from "../cards";
@@ -28,12 +29,14 @@ const SAMPLE_CARDS_URL = `${import.meta.env.BASE_URL}sample.json`;
 
 export function AppProvider({ children }) {
   const [cards, setCards] = useState(getStoredCards);
-  const [filter, setFilter] = useState("all");
   const [batchSize, setBatchSize] = useState(() =>
     normalizeBatchSize(
       localStorage.getItem(BATCH_SIZE_STORAGE_KEY),
       DEFAULT_BATCH_SIZE,
     ),
+  );
+  const [correctAnswersToLearn, setCorrectAnswersToLearn] = useState(() =>
+    normalizeCorrectToLearn(localStorage.getItem(CORRECT_TO_LEARN_STORAGE_KEY)),
   );
   const [toast, setToast] = useState(null);
   const [quiz, setQuiz] = useState(null);
@@ -157,14 +160,19 @@ export function AppProvider({ children }) {
     notify(t("notifications.exported", { count: cards.length }));
   }
 
-  function startQuiz(mode = "all") {
-    const candidates = mode === "all" ? cards : filterCards(cards, mode);
-    const batch =
-      mode === "all"
-        ? buildQuizBatch(candidates, Math.min(batchSize, candidates.length))
-        : candidates;
+  function startQuiz() {
+    const batch = buildQuizBatch(
+      cards,
+      Math.min(batchSize, cards.length),
+      correctAnswersToLearn,
+    );
     if (!batch.length) {
-      notify(t("notifications.noCardsForQuiz"), "error");
+      notify(
+        cards.length
+          ? t("notifications.allCardsLearned")
+          : t("notifications.noCardsForQuiz"),
+        cards.length ? "success" : "error",
+      );
       return false;
     }
 
@@ -213,8 +221,7 @@ export function AppProvider({ children }) {
             stats: {
               ...stored.stats,
               timesShown: stored.stats.timesShown + 1,
-              timesWrong: stored.stats.timesWrong + (isCorrect ? 0 : 1),
-              lastAttemptCorrect: isCorrect,
+              timesCorrect: isCorrect ? stored.stats.timesCorrect + 1 : 0,
               lastSelectedOptionId: quiz.selected,
             },
           }
@@ -248,8 +255,7 @@ export function AppProvider({ children }) {
       ...card,
       stats: {
         timesShown: 0,
-        timesWrong: 0,
-        lastAttemptCorrect: null,
+        timesCorrect: 0,
         lastSelectedOptionId: null,
       },
     }));
@@ -262,6 +268,12 @@ export function AppProvider({ children }) {
     const nextSize = normalizeBatchSize(value);
     setBatchSize(nextSize);
     localStorage.setItem(BATCH_SIZE_STORAGE_KEY, String(nextSize));
+  }
+
+  function changeCorrectAnswersToLearn(value) {
+    const nextCount = normalizeCorrectToLearn(value);
+    setCorrectAnswersToLearn(nextCount);
+    localStorage.setItem(CORRECT_TO_LEARN_STORAGE_KEY, String(nextCount));
   }
 
   function changeStartRoute(value) {
@@ -280,10 +292,10 @@ export function AppProvider({ children }) {
     <AppContext.Provider
       value={{
         cards,
-        filter,
-        setFilter,
         batchSize,
         changeBatchSize,
+        correctAnswersToLearn,
+        changeCorrectAnswersToLearn,
         startRoute,
         changeStartRoute,
         uiLanguage,

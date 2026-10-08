@@ -1,8 +1,9 @@
 import { useId, useRef, useState } from "react";
 import { useApp } from "../../app/useApp";
 import { startViewTransition } from "../../app/viewTransition";
+import { getCardStatus } from "../../cards";
 
-function CardView({ card, review, selectedOptionId }) {
+function CardView({ card, review, correctAnswersToLearn }) {
   const { t } = useApp();
   const transitionId = useId().replace(/[^a-zA-Z0-9_-]/g, "");
   const questionRef = useRef(null);
@@ -41,7 +42,7 @@ function CardView({ card, review, selectedOptionId }) {
         {Object.entries(content.options).map(([id, text]) => (
           <li
             key={id}
-            className={`${id === card.correctOptionId ? "correct-option" : ""} ${id === selectedOptionId && id !== card.correctOptionId ? "wrong-option" : ""}`}
+            className={`${id === card.correctOptionId ? "correct-option" : ""} ${id !== card.correctOptionId && card.stats.lastSelectedOptionId !== card.correctOptionId ? "wrong-option" : ""}`}
           >
             {text}
           </li>
@@ -49,8 +50,15 @@ function CardView({ card, review, selectedOptionId }) {
       </ul>
       {!review && (
         <div className="card-meta">
-          <span>{t("cards.mistakes", { count: card.stats.timesWrong })}</span>
-          <span>{t("cards.studied", { count: card.stats.timesShown })}</span>
+          <span>
+            {getCardStatus(card, correctAnswersToLearn) === "learned"
+              ? t("cards.learned")
+              : t("cards.correctInRow", {
+                  count: card.stats.timesCorrect,
+                  threshold: correctAnswersToLearn,
+                })}
+          </span>
+          <span>{t("cards.shown", { count: card.stats.timesShown })}</span>
         </div>
       )}
     </article>

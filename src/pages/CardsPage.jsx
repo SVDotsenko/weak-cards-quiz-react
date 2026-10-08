@@ -1,15 +1,14 @@
+import { useState } from "react";
 import { filterCards, sortCardsForDisplay } from "../cards";
 import { useApp } from "../app/useApp";
-import { useNavigate } from "react-router-dom";
 import CardView from "../components/cards/CardView";
 import Stats from "../components/cards/Stats";
 
 function CardsPage() {
-  const navigate = useNavigate();
+  const [filter, setFilter] = useState("all");
   const {
     cards,
-    filter,
-    setFilter,
+    correctAnswersToLearn,
     importFiles,
     exportCards,
     resetStats,
@@ -17,17 +16,27 @@ function CardsPage() {
     loadSampleCards,
     t,
   } = useApp();
-  const visibleCards = sortCardsForDisplay(filterCards(cards, filter));
-  const errorCardCount = filterCards(cards, "errors").length;
+  const visibleCards = sortCardsForDisplay(
+    filterCards(cards, filter, correctAnswersToLearn),
+  );
 
   function handleDeleteOrLoadSample() {
     if (!cards.length) {
+      setFilter("all");
       loadSampleCards();
       return;
     }
     if (window.confirm(t("cards.confirmDelete"))) {
+      setFilter("all");
       deleteAllCards();
     }
+  }
+
+  function handleImport(event) {
+    const files = [...event.target.files];
+    setFilter("all");
+    importFiles(files);
+    event.target.value = "";
   }
 
   return (
@@ -39,37 +48,33 @@ function CardsPage() {
               type="file"
               accept="application/json"
               multiple
-              onChange={(event) => importFiles([...event.target.files])}
+              onChange={handleImport}
             />
             {t("cards.import")}
           </label>
           <button onClick={exportCards} disabled={!cards.length}>
             {t("cards.export")}
           </button>
-          <button onClick={resetStats} disabled={!cards.length}>
+          <button
+            onClick={() => {
+              setFilter("all");
+              resetStats();
+            }}
+            disabled={!cards.length}
+          >
             {t("cards.resetStats")}
           </button>
           <button onClick={handleDeleteOrLoadSample}>
             {cards.length ? t("cards.deleteAll") : t("cards.loadSample")}
-          </button>
-          <button
-            type="button"
-            title={
-              filter === "all"
-                ? t("cards.showErrors", { count: errorCardCount })
-                : t("cards.showAll")
-            }
-            onClick={() => setFilter(filter === "all" ? "errors" : "all")}
-          >
-            {filter === "all" ? t("cards.showAll") : t("cards.errors")}
           </button>
         </div>
       </section>
       <section className="panel">
         <Stats
           cards={cards}
-          visible={filter === "all"}
-          onStudy={(mode) => navigate("/quiz", { state: { quizMode: mode } })}
+          correctAnswersToLearn={correctAnswersToLearn}
+          filter={filter}
+          onFilterChange={setFilter}
         />
         {visibleCards.length ? (
           <div className="cards-list">
@@ -78,11 +83,7 @@ function CardsPage() {
                 key={card.id}
                 card={card}
                 index={index}
-                selectedOptionId={
-                  card.stats.lastAttemptCorrect === false
-                    ? card.stats.lastSelectedOptionId
-                    : undefined
-                }
+                correctAnswersToLearn={correctAnswersToLearn}
               />
             ))}
           </div>

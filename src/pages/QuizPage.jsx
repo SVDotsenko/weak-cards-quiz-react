@@ -1,5 +1,5 @@
-import { useEffect, useRef } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { useApp } from "../app/useApp";
 import QuizCard from "../components/quiz/QuizCard";
 
@@ -13,24 +13,14 @@ function QuizPage() {
     cards,
     batchSize,
     changeBatchSize,
+    correctAnswersToLearn,
     t,
   } = useApp();
-  const location = useLocation();
   const navigate = useNavigate();
-  const handledLaunchRef = useRef(false);
 
   useEffect(() => {
-    if (handledLaunchRef.current) return;
-    handledLaunchRef.current = true;
-
-    const requestedMode = location.state?.quizMode;
-    if (requestedMode === "problem" || requestedMode === "errors") {
-      startQuiz(requestedMode);
-      navigate(".", { replace: true, state: null });
-    } else {
-      setQuiz(null);
-    }
-  }, [location.state, navigate, setQuiz, startQuiz]);
+    setQuiz(null);
+  }, [setQuiz]);
 
   function handleNext() {
     const isLastQuestion = quiz.index >= quiz.cards.length - 1;
@@ -55,7 +45,7 @@ function QuizPage() {
             <button
               onClick={() => startQuiz()}
               disabled={!cards.length}
-              title={t("quiz.startTooltip")}
+              title={t("quiz.startTooltip", { count: correctAnswersToLearn })}
             >
               {t("quiz.start")}
             </button>
