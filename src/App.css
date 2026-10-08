@@ -254,14 +254,19 @@ main {
   color: inherit;
   font: inherit;
   text-align: left;
-  cursor: default;
+  cursor: pointer;
 }
 
 .stats-grid__action:hover {
-  border-color: var(--line);
-  background: var(--wash);
+  border-color: var(--blue);
+  background: #edf3ff;
   filter: none;
   transform: none;
+}
+
+.stats-grid__action[aria-pressed="true"] {
+  border-color: var(--blue);
+  background: #edf3ff;
 }
 
 .stats-grid__action:focus-visible {
