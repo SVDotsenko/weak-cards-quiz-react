@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useApp } from "../app/useApp";
 import QuizCard from "../components/quiz/QuizCard";
+import { getCardStatus } from "../cards";
 
 function QuizPage() {
   const {
@@ -17,6 +18,9 @@ function QuizPage() {
     t,
   } = useApp();
   const navigate = useNavigate();
+  const hasUnseenCards = cards.some(
+    (card) => getCardStatus(card, correctAnswersToLearn) === "new",
+  );
 
   useEffect(() => {
     setQuiz(null);
@@ -45,7 +49,12 @@ function QuizPage() {
             <button
               onClick={() => startQuiz()}
               disabled={!cards.length}
-              title={t("quiz.startTooltip", { count: correctAnswersToLearn })}
+              title={t(
+                hasUnseenCards
+                  ? "quiz.startTooltipUnseen"
+                  : "quiz.startTooltipReview",
+                { count: correctAnswersToLearn },
+              )}
             >
               {t("quiz.start")}
             </button>
