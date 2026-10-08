@@ -254,12 +254,13 @@ main {
   color: inherit;
   font: inherit;
   text-align: left;
-  cursor: pointer;
+  cursor: default;
 }
 
 .stats-grid__action:hover {
-  border-color: var(--blue);
-  background: #edf3ff;
+  border-color: var(--line);
+  background: var(--wash);
+  filter: none;
   transform: none;
 }
 
@@ -840,11 +841,6 @@ main {
     right: 0;
     border-right-color: var(--border);
   }
-}
-
-.stats-grid__action[aria-pressed="true"] {
-  border-color: var(--blue);
-  background: #edf3ff;
 }
 
 .setting-field input[type="number"] {

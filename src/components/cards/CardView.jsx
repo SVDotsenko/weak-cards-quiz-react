@@ -42,7 +42,7 @@ function CardView({ card, review, correctAnswersToLearn }) {
         {Object.entries(content.options).map(([id, text]) => (
           <li
             key={id}
-            className={`${id === card.correctOptionId ? "correct-option" : ""} ${id !== card.correctOptionId && card.stats.lastSelectedOptionId !== card.correctOptionId ? "wrong-option" : ""}`}
+            className={`${id === card.correctOptionId ? "correct-option" : ""} ${card.stats.lastSelectedOptionId != null && card.stats.lastSelectedOptionId === id && id !== card.correctOptionId ? "wrong-option" : ""}`}
           >
             {text}
           </li>
