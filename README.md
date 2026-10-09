@@ -6,10 +6,13 @@ The app complements the official theory-test app. Its main purpose is to collect
 
 ## How the app works
 
-- Cards are presented in batches of the size you choose.
-- During the first quiz, cards are taken in their stored order.
-- After each answer, the app highlights the correct option. At the end of the quiz, it shows the questions answered incorrectly, together with the selected and correct answers.
-- In later quizzes, cards whose most recent answer was wrong are shown first. Cards that have never been answered are then used to fill the remaining places in the batch.
+- Quizzes use batches of the size set on the Quiz page.
+- **Phase 1:** The quiz presents cards that have never been shown, in their stored order. It keeps doing this until every card has been seen.
+- **Phase 2:** The quiz randomly selects shown cards that have had a mistake and have not yet reached the mastery target. A correct answer increases their consecutive-correct count; a wrong answer resets it to zero.
+- A card answered correctly on its first showing is already considered learned. A card that had a mistake is learned after reaching the configured number of consecutive correct answers.
+- The mastery target is set in Settings. It defaults to 3 and can be changed at any time.
+- Statistics tiles change with the phase. In Phase 1, **Shown** reports how many cards have been seen and **Cards with errors** counts cards that will need Phase 2 review. In Phase 2, **Learned** reports mastered cards, **Cards with errors** shows the remaining review pool, and **Cards with an incorrect last answer** counts cards whose latest answer was wrong.
+- The two error-related tiles filter the card list when clicked; they do not start a quiz. Click an active tile again to clear its filter. Start a quiz only with **Start quiz** on the Quiz page.
 - Answer options are shuffled each time a quiz starts, so the correct answer can appear in a different position when you see the same card again.
 - You can switch any card between English and Russian to understand the complete question and answer options.
 
@@ -20,8 +23,9 @@ The app complements the official theory-test app. Its main purpose is to collect
 3. Take screenshots of the questions you answered incorrectly.
 4. Send up to 15 screenshots at a time to an AI assistant with the prompt below.
 5. Save the AI response as a `.json` file.
-6. Open Weak Cards Quiz and click `Upload JSON file`.
+6. Open Weak Cards Quiz and click `Import JSON`.
 7. Select one or more generated JSON files, then click `Start quiz`.
+8. The quiz first covers every imported card, then repeats cards with mistakes until they reach the mastery target shown in Settings.
 
 ## Importing and exporting cards
 
@@ -33,7 +37,7 @@ The `Export JSON` button downloads all saved cards. The exported file contains t
 
 ## Local data storage
 
-The app has no backend. Cards, quiz statistics, and the selected batch size are stored in the browser's `localStorage`, which persists across browser and computer restarts.
+The app has no backend. Cards, quiz statistics, the selected batch size, and the mastery target are stored in the browser's `localStorage`, which persists across browser and computer restarts.
 
 The interface language is also stored in `localStorage`. English is selected by default and Russian can be enabled in Settings. The interface language is independent from the English/Russian language switch inside each card.
 
