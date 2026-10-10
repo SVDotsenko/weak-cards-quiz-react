@@ -7,7 +7,8 @@ The app complements the official theory-test app. Its main purpose is to collect
 ## How the app works
 
 - Quizzes use batches of the size set on the Quiz page.
-- **Phase 1:** The quiz presents cards that have never been shown, in their stored order. It keeps doing this until every card has been seen.
+- The app chooses the phase automatically each time a quiz starts; you cannot switch phases manually. As long as unseen cards remain, it runs Phase 1. Once all cards have been seen, the next quiz starts Phase 2.
+- **Phase 1:** The quiz presents cards that have never been shown, in their stored order.
 - **Phase 2:** The quiz randomly selects shown cards that have had a mistake and have not yet reached the mastery target. A correct answer increases their consecutive-correct count; a wrong answer resets it to zero.
 - A card answered correctly on its first showing is already considered learned. A card that had a mistake is learned after reaching the configured number of consecutive correct answers.
 - The mastery target is set in Settings. It defaults to 3 and can be changed at any time.
