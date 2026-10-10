@@ -110,6 +110,23 @@ button:disabled {
   text-decoration: none;
 }
 
+.main-navigation a {
+  display: inline-grid;
+  align-items: center;
+  justify-items: center;
+}
+
+.main-navigation a>span {
+  grid-area: 1 / 1;
+}
+
+/* Hidden labels in every language reserve the widest button width. */
+.nav-label-sizer {
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+
 .main-navigation a.active {
   background: var(--blue);
   color: #fff;
@@ -603,6 +620,7 @@ main {
 
   .menu-list a {
     width: 100%;
+    justify-items: start;
   }
 
   .menu--open .menu-list {

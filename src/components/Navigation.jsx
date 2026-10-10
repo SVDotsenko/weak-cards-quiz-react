@@ -1,6 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useApp } from "../app/useApp";
+import { UI_LANGUAGES, getTranslator } from "../i18n";
+
+const translators = UI_LANGUAGES.map((language) => getTranslator(language));
 
 function Navigation() {
   const { t } = useApp();
@@ -56,10 +59,10 @@ function Navigation() {
   };
 
   const links = [
-    ["/cards", t("navigation.cards")],
-    ["/quiz", t("navigation.quiz")],
-    ["/settings", t("navigation.settings")],
-    ["/about", t("navigation.about")],
+    ["/cards", "navigation.cards"],
+    ["/quiz", "navigation.quiz"],
+    ["/settings", "navigation.settings"],
+    ["/about", "navigation.about"],
   ];
 
   return (
@@ -85,14 +88,23 @@ function Navigation() {
       </button>
 
       <ul className="menu-list" id="mobile-menu">
-        {links.map(([to, label]) => (
+        {links.map(([to, key]) => (
           <li key={to}>
             <NavLink
               to={to}
               className={({ isActive }) => (isActive ? "active" : undefined)}
               onClick={handleLinkClick}
             >
-              {label}
+              <span>{t(key)}</span>
+              {translators.map((translate, index) => (
+                <span
+                  key={UI_LANGUAGES[index]}
+                  className="nav-label-sizer"
+                  aria-hidden="true"
+                >
+                  {translate(key)}
+                </span>
+              ))}
             </NavLink>
           </li>
         ))}
