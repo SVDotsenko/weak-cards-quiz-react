@@ -12,7 +12,7 @@ The app complements the official theory-test app. Its main purpose is to collect
 - **Phase 2:** The quiz randomly selects shown cards that have had a mistake and have not yet reached the mastery target. A correct answer increases their consecutive-correct count; a wrong answer resets it to zero.
 - A card answered correctly on its first showing is already considered learned. A card that had a mistake is learned after reaching the configured number of consecutive correct answers.
 - The mastery target is set in Settings. It defaults to 3 and can be changed at any time.
-- Statistics tiles change with the phase. In Phase 1, **Shown** reports how many cards have been seen and **Cards with errors** counts cards that will need Phase 2 review. In Phase 2, **Learned** reports mastered cards, **Cards with errors** shows the remaining review pool, and **Cards with an incorrect last answer** counts cards whose latest answer was wrong.
+- Statistics tiles change with the phase. In Phase 1, **Shown** reports how many cards have been seen and **Cards with errors** counts cards that will need Phase 2 review. In Phase 2, **Learned** reports mastered cards and **Cards with errors** shows the remaining review pool.
 - The two error-related tiles filter the card list when clicked; they do not start a quiz. Click an active tile again to clear its filter. Start a quiz only with **Start quiz** on the Quiz page.
 - Answer options are shuffled each time a quiz starts, so the correct answer can appear in a different position when you see the same card again.
 - You can switch any card between English and Russian to understand the complete question and answer options.

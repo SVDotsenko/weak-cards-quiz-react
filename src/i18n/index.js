@@ -7,7 +7,7 @@ const translations = {
         navigation: { cards: "All cards", quiz: "Quiz", settings: "Settings", about: "About", menu: "Main menu", openMenu: "Open menu", closeMenu: "Close menu" },
         settings: { title: "Settings", startPage: "Page to open on launch", interfaceLanguage: "Interface language", correctAnswersToLearn: "Correct answers required to learn a card", english: "English", russian: "Russian", routeCards: "All cards", routeQuiz: "Quiz", routeAbout: "About" },
         cards: { import: "Import JSON", export: "Export JSON", resetStats: "Reset statistics", deleteAll: "Delete all cards", loadSample: "Load sample cards", empty: "No cards found. Import a JSON file to get started.", confirmDelete: "Delete all cards permanently?", cardLanguage: "Russian", cardLanguageEnglish: "English", correctInRow: "Correct in a row: {count} / {threshold}", learned: "Learned", shown: "Times shown: {count}" },
-        stats: { shown: "Shown", studied: "Learned", cardsWithErrors: "Cards with errors", incorrectLastAnswer: "Cards with an incorrect last answer" },
+        stats: { shown: "Shown", studied: "Learned", cardsWithErrors: "Cards with errors" },
         quiz: { cardCount: "Number of cards", cardCountTooltip: "Number of cards to include in the quiz.", start: "Start quiz", startTooltipUnseen: "Starts with unseen cards.", startTooltipReview: "Repeats missed cards until {count} correct in a row.", card: "Card {current} of {total}", answer: "Answer", next: "Next card" },
         about: {
             purposeTitle: "Why was this app created?",
@@ -27,7 +27,7 @@ const translations = {
         navigation: { cards: "Все карточки", quiz: "Тест", settings: "Настройки", about: "О приложении", menu: "Основное меню", openMenu: "Открыть меню", closeMenu: "Закрыть меню" },
         settings: { title: "Настройки", startPage: "Страница при входе в приложение", interfaceLanguage: "Язык интерфейса", correctAnswersToLearn: "Верных ответов для запоминания карточки", english: "English", russian: "Русский", routeCards: "Все карточки", routeQuiz: "Тест", routeAbout: "О приложении" },
         cards: { import: "Загрузить JSON-файл", export: "Экспортировать JSON", resetStats: "Обнулить статистику", deleteAll: "Удалить все карточки", loadSample: "Загрузить тестовые карточки", empty: "Карточки не найдены. Загрузите JSON-файл, чтобы начать.", confirmDelete: "Удалить все карточки безвозвратно?", cardLanguage: "Русский", cardLanguageEnglish: "English", correctInRow: "Верно подряд: {count} / {threshold}", learned: "Выучено", shown: "Показов: {count}" },
-        stats: { shown: "Показано", studied: "Изучено", cardsWithErrors: "Карточек с ошибками", incorrectLastAnswer: "Карточек с неверным последним ответом" },
+        stats: { shown: "Показано", studied: "Изучено", cardsWithErrors: "Карточек с ошибками" },
         quiz: { cardCount: "Количество карточек", cardCountTooltip: "Количество карточек, которое будет в тесте.", start: "Начать тест", startTooltipUnseen: "Начнётся с ещё не показанных карточек.", startTooltipReview: "Повтор ошибок до {count} верных ответов подряд.", card: "Карточка {current} из {total}", answer: "Ответить", next: "Следующая карточка" },
         about: {
             purposeTitle: "Зачем создано это приложение?",

@@ -102,7 +102,6 @@ export function calculateOverallStats(cards, correctAnswersToLearn = DEFAULT_COR
         studiedCount,
         studiedPercent: totalCount ? Math.round((studiedCount / totalCount) * 100) : 0,
         cardsWithErrorsCount: statuses.filter((status) => status === 'problem' || status === 'learning').length,
-        lastIncorrectCount: statuses.filter((status) => status === 'problem').length,
         isInitialPhase: statuses.includes('new'),
     }
 }
@@ -114,7 +113,6 @@ export function filterCards(cards, filter, correctAnswersToLearn = DEFAULT_CORRE
             return status === 'problem' || status === 'learning'
         })
     }
-    if (filter === 'problem') return cards.filter((card) => getCardStatus(card, correctAnswersToLearn) === 'problem')
     return cards
 }
 

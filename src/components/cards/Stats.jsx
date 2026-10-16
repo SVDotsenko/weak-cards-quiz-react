@@ -28,11 +28,6 @@ function Stats({ cards, correctAnswersToLearn, filter, onFilterChange }) {
           value: stats.cardsWithErrorsCount,
           mode: "errors",
         },
-        {
-          label: t("stats.incorrectLastAnswer"),
-          value: stats.lastIncorrectCount,
-          mode: "problem",
-        },
       ];
 
   return (
