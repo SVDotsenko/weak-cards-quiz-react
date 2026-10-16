@@ -64,6 +64,7 @@ function QuizPage() {
     );
 
   const currentCard = quiz.cards[quiz.index];
+  const storedCard = cards.find((card) => card.id === currentCard.id);
   return (
     <section className="panel quiz-panel">
       <div className="panel-header">
@@ -81,6 +82,24 @@ function QuizPage() {
         setQuiz={setQuiz}
         onAnswer={answerQuiz}
         onNext={handleNext}
+        meta={
+          quiz.isReviewPhase &&
+          storedCard && (
+            <div className="card-meta quiz-meta">
+              <span>
+                {getCardStatus(storedCard, correctAnswersToLearn) === "learned"
+                  ? t("cards.learned")
+                  : t("cards.correctInRow", {
+                      count: storedCard.stats.timesCorrect,
+                      threshold: correctAnswersToLearn,
+                    })}
+              </span>
+              <span>
+                {t("cards.shown", { count: storedCard.stats.timesShown })}
+              </span>
+            </div>
+          )
+        }
       />
     </section>
   );

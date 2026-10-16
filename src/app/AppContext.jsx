@@ -7,6 +7,7 @@ import {
   STORAGE_KEY,
   buildQuizBatch,
   clearStoredCards,
+  getCardStatus,
   getExportableCards,
   getStoredCards,
   mergeUniqueImportedCards,
@@ -197,6 +198,9 @@ export function AppProvider({ children }) {
 
     setQuiz({
       cards: quizCards,
+      isReviewPhase: !cards.some(
+        (card) => getCardStatus(card, correctAnswersToLearn) === "new",
+      ),
       index: 0,
       selected: null,
       answered: false,

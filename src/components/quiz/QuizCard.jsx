@@ -2,7 +2,7 @@ import { useId, useRef, useState } from "react";
 import { useApp } from "../../app/useApp";
 import { startViewTransition } from "../../app/viewTransition";
 
-function QuizCard({ card, quiz, setQuiz, onAnswer, onNext }) {
+function QuizCard({ card, quiz, setQuiz, onAnswer, onNext, meta }) {
   const { t } = useApp();
   const transitionId = useId().replace(/[^a-zA-Z0-9_-]/g, "");
   const questionRef = useRef(null);
@@ -62,13 +62,16 @@ function QuizCard({ card, quiz, setQuiz, onAnswer, onNext }) {
           </label>
         ))}
       </div>
-      <button
-        className="primary-button quiz-action"
-        disabled={!quiz.selected && !quiz.answered}
-        onClick={quiz.answered ? onNext : onAnswer}
-      >
-        {quiz.answered ? t("quiz.next") : t("quiz.answer")}
-      </button>
+      <div className="quiz-footer">
+        {meta}
+        <button
+          className="primary-button quiz-action"
+          disabled={!quiz.selected && !quiz.answered}
+          onClick={quiz.answered ? onNext : onAnswer}
+        >
+          {quiz.answered ? t("quiz.next") : t("quiz.answer")}
+        </button>
+      </div>
     </div>
   );
 }
