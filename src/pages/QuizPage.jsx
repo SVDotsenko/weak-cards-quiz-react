@@ -65,6 +65,23 @@ function QuizPage() {
 
   const currentCard = quiz.cards[quiz.index];
   const storedCard = cards.find((card) => card.id === currentCard.id);
+  const isCorrect = quiz.selected === currentCard.correctOptionId;
+  const flash = (tone) =>
+    quiz.answered ? `stat-value stat-flash stat-flash--${tone}` : "stat-value";
+
+  function withHighlightedValue(key, params, value, className) {
+    const [before, after] = t(key, { ...params, count: "\u0000" }).split(
+      "\u0000",
+    );
+    return (
+      <>
+        {before}
+        <span className={className}>{value}</span>
+        {after}
+      </>
+    );
+  }
+
   return (
     <section className="panel quiz-panel">
       <div className="panel-header">
@@ -87,15 +104,25 @@ function QuizPage() {
           storedCard && (
             <div className="card-meta quiz-meta">
               <span>
-                {getCardStatus(storedCard, correctAnswersToLearn) === "learned"
-                  ? t("cards.learned")
-                  : t("cards.correctInRow", {
-                      count: storedCard.stats.timesCorrect,
-                      threshold: correctAnswersToLearn,
-                    })}
+                {getCardStatus(storedCard, correctAnswersToLearn) ===
+                "learned" ? (
+                  <span className={flash("up")}>{t("cards.learned")}</span>
+                ) : (
+                  withHighlightedValue(
+                    "cards.correctInRow",
+                    { threshold: correctAnswersToLearn },
+                    storedCard.stats.timesCorrect,
+                    flash(isCorrect ? "up" : "down"),
+                  )
+                )}
               </span>
               <span>
-                {t("cards.shown", { count: storedCard.stats.timesShown })}
+                {withHighlightedValue(
+                  "cards.shown",
+                  {},
+                  storedCard.stats.timesShown,
+                  flash("up"),
+                )}
               </span>
             </div>
           )
