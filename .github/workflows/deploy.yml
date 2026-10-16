@@ -34,6 +34,11 @@ jobs:
       - name: Build
         run: npm run build
 
+      # SPA fallback: GitHub Pages serves 404.html for unknown paths,
+      # so client-side routes survive a page refresh
+      - name: Add SPA fallback
+        run: cp dist/index.html dist/404.html
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
