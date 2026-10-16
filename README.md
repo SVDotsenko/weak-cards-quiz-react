@@ -1,3 +1,5 @@
+**🇬🇧 English** | [🇷🇺 Русский](README.ru.md)
+
 # Weak Cards Quiz
 
 Weak Cards Quiz is a browser app for practising difficult questions from the Irish driving theory test. It is designed for Russian-speaking learners who take the official test in English.
