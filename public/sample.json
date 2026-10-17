@@ -1,55 +1,5 @@
 [
   {
-    "correctOptionId": "opt1",
-    "en": {
-      "question": "Who is required to hold a Road Passenger Transport Operator's Licence?",
-      "options": {
-        "opt1": "A person or firm with a business involved in transporting persons by road for reward.",
-        "opt2": "A bus or coach driver.",
-        "opt3": "A bus or coach driver of a vehicle with passenger capacity for more than 16 passengers.",
-        "opt4": "A sports club or charity involved in transporting by road persons other than for reward."
-      }
-    },
-    "ru": {
-      "question": "Кто обязан иметь лицензию оператора пассажирских автоперевозок (Road Passenger Transport Operator's Licence)?",
-      "options": {
-        "opt1": "Физическое или юридическое лицо, занимающееся коммерческими перевозками пассажиров автомобильным транспортом за вознаграждение.",
-        "opt2": "Водитель автобуса.",
-        "opt3": "Водитель автобуса с пассажировместимостью более 16 человек.",
-        "opt4": "Спортивный клуб или благотворительная организация, перевозящая людей не за вознаграждение."
-      }
-    },
-    "stats": {
-      "timesShown": 0,
-      "timesCorrect": 0,
-      "lastSelectedOptionId": null
-    }
-  },
-  {
-    "correctOptionId": "opt3",
-    "en": {
-      "question": "What does a load-sensing valve do?",
-      "options": {
-        "opt1": "Warns the driver when the vehicle is overloaded.",
-        "opt2": "Warns the driver of an uneven load distribution.",
-        "opt3": "Adjusts the brake pressure which is applied at the wheels."
-      }
-    },
-    "ru": {
-      "question": "Что делает клапан, чувствительный к нагрузке (регулятор тормозных сил)?",
-      "options": {
-        "opt1": "Предупреждает водителя о перегрузке транспортного средства.",
-        "opt2": "Предупреждает водителя о неравномерном распределении нагрузки.",
-        "opt3": "Регулирует тормозное давление, прикладываемое к колесам."
-      }
-    },
-    "stats": {
-      "timesShown": 0,
-      "timesCorrect": 0,
-      "lastSelectedOptionId": null
-    }
-  },
-  {
     "correctOptionId": "opt2",
     "en": {
       "question": "What driver records must be produced by a driver to an enforcement officer at a roadside inspection?",
@@ -102,73 +52,23 @@
     }
   },
   {
-    "correctOptionId": "opt2",
+    "correctOptionId": "opt3",
     "en": {
-      "question": "What is the maximum permitted speed on a national primary road of a single-decker bus or minibus having passenger accommodation for more than 8 persons and which is designed to carry standing passengers?",
+      "question": "What should a driver do with a driver card that has malfunctioned?",
       "options": {
-        "opt1": "60 km/h.",
-        "opt2": "65 km/h.",
-        "opt3": "80 km/h."
+        "opt1": "Dispose of it safely.",
+        "opt2": "Retain it to recover any stored data on the card.",
+        "opt3": "Return it to the Road Safety Authority.",
+        "opt4": "Return it to An Garda Síochána."
       }
     },
     "ru": {
-      "question": "Какова максимально допустимая скорость на национальной первичной дороге (national primary road) для одноэтажного автобуса или микроавтобуса (вмещающего более 8 пассажиров), предназначенного для перевозки стоящих пассажиров?",
+      "question": "Что должен сделать водитель с неисправной картой водителя?",
       "options": {
-        "opt1": "60 км/ч.",
-        "opt2": "65 км/ч.",
-        "opt3": "80 км/ч."
-      }
-    },
-    "stats": {
-      "timesShown": 0,
-      "timesCorrect": 0,
-      "lastSelectedOptionId": null
-    }
-  },
-  {
-    "correctOptionId": "opt2",
-    "en": {
-      "question": "What is the maximum permitted speed on a dual carriageway of a single-decker bus or minibus (having passenger accommodation for more than 8 persons) which is designed to carry standing passengers?",
-      "options": {
-        "opt1": "55 km/h.",
-        "opt2": "65 km/h.",
-        "opt3": "80 km/h.",
-        "opt4": "100 km/h."
-      }
-    },
-    "ru": {
-      "question": "Какова максимально допустимая скорость на дороге с двусторонним раздельным движением (dual carriageway) для одноэтажного автобуса или микроавтобуса (вмещающего более 8 пассажиров), предназначенного для перевозки стоящих пассажиров?",
-      "options": {
-        "opt1": "55 км/ч.",
-        "opt2": "65 км/ч.",
-        "opt3": "80 км/ч.",
-        "opt4": "100 км/ч."
-      }
-    },
-    "stats": {
-      "timesShown": 0,
-      "timesCorrect": 0,
-      "lastSelectedOptionId": null
-    }
-  },
-  {
-    "correctOptionId": "opt2",
-    "en": {
-      "question": "What is the maximum permitted speed on a dual carriageway of a double-decker bus or minibus (having passenger accommodation for more than 8 persons) and which is designed to carry standing passengers?",
-      "options": {
-        "opt1": "60 km/h.",
-        "opt2": "65 km/h.",
-        "opt3": "80 km/h.",
-        "opt4": "100 km/h."
-      }
-    },
-    "ru": {
-      "question": "Какова максимально допустимая скорость на дороге с двусторонним раздельным движением (dual carriageway) для двухэтажного автобуса или микроавтобуса (вмещающего более 8 пассажиров), предназначенного для перевозки стоящих пассажиров?",
-      "options": {
-        "opt1": "60 км/ч.",
-        "opt2": "65 км/ч.",
-        "opt3": "80 км/ч.",
-        "opt4": "100 км/ч."
+        "opt1": "Безопасно утилизировать её.",
+        "opt2": "Сохранить её для восстановления сохраненных данных.",
+        "opt3": "Вернуть её в Управление по безопасности дорожного движения (RSA).",
+        "opt4": "Вернуть её в полицию (An Garda Síochána)."
       }
     },
     "stats": {
@@ -180,21 +80,21 @@
   {
     "correctOptionId": "opt4",
     "en": {
-      "question": "Who can use a signed cycle track accompanied by a continuous white line on the left-hand side?",
+      "question": "Under EU drivers' hours regulations, what is the minimum number of consecutive hours of daily rest a driver must take?",
       "options": {
-        "opt1": "Drivers when overtaking a vehicle turning right.",
-        "opt2": "Cyclists and motorcyclists.",
-        "opt3": "Drivers, when it is not being used by a cyclist.",
-        "opt4": "Cyclists and users of motorised wheelchairs."
+        "opt1": "8 reduced to 6.",
+        "opt2": "9 reduced to 7.",
+        "opt3": "10 reduced to 8.",
+        "opt4": "11 reduced to 9."
       }
     },
     "ru": {
-      "question": "Кто может использовать обозначенную велосипедную дорожку со сплошной белой линией слева?",
+      "question": "Согласно правилам ЕС о режиме труда и отдыха водителей, какова минимальная продолжительность непрерывного ежедневного отдыха?",
       "options": {
-        "opt1": "Водители при обгоне транспортного средства, поворачивающего направо.",
-        "opt2": "Велосипедисты и мотоциклисты.",
-        "opt3": "Водители, когда она не используется велосипедистами.",
-        "opt4": "Велосипедисты и пользователи инвалидных колясок с электроприводом."
+        "opt1": "8 часов с возможностью сокращения до 6.",
+        "opt2": "9 часов с возможностью сокращения до 7.",
+        "opt3": "10 часов с возможностью сокращения до 8.",
+        "opt4": "11 часов с возможностью сокращения до 9."
       }
     },
     "stats": {
@@ -206,21 +106,47 @@
   {
     "correctOptionId": "opt4",
     "en": {
-      "question": "A driver's responsibility with regard to a wheelchair restraint system is to...",
+      "question": "Road Haulage and Road Passenger Transport Operator's Licences are issued and maintained by...",
       "options": {
-        "opt1": "offer assistance using the system if the passenger requests it.",
-        "opt2": "alert the passenger to the presence of the restraint system.",
-        "opt3": "check that the system is functioning correctly on a weekly basis.",
-        "opt4": "ensure that the wheelchair is secured with the appropriate webbing straps or clamps."
+        "opt1": "The Road Safety Authority.",
+        "opt2": "Local authorities.",
+        "opt3": "An Garda Síochána.",
+        "opt4": "The Department of Transport."
       }
     },
     "ru": {
-      "question": "Обязанность водителя в отношении системы фиксации инвалидной коляски заключается в том, чтобы...",
+      "question": "Лицензии оператора грузовых и пассажирских автоперевозок выдаются и ведутся...",
       "options": {
-        "opt1": "предложить помощь в использовании системы, если пассажир попросит об этом.",
-        "opt2": "предупредить пассажира о наличии системы фиксации.",
-        "opt3": "еженедельно проверять правильность функционирования системы.",
-        "opt4": "убедиться, что инвалидная коляска закреплена соответствующими ремнями или зажимами."
+        "opt1": "Управлением по безопасности дорожного движения (RSA).",
+        "opt2": "Местными органами власти.",
+        "opt3": "Полицией (An Garda Síochána).",
+        "opt4": "Министерством транспорта (The Department of Transport)."
+      }
+    },
+    "stats": {
+      "timesShown": 0,
+      "timesCorrect": 0,
+      "lastSelectedOptionId": null
+    }
+  },
+  {
+    "correctOptionId": "opt1",
+    "en": {
+      "question": "Which of the following is a condition of the 12 day rule for international coach journey?",
+      "options": {
+        "opt1": "The driver is on a single trip journey.",
+        "opt2": "The driver must take a break at least once in 12 hours.",
+        "opt3": "The driver may work as many hours as required in that period.",
+        "opt4": "The driver is not required to take a break after 4.5 hours."
+      }
+    },
+    "ru": {
+      "question": "Какое из следующих условий является обязательным для 'правила 12 дней' при международных автобусных поездках?",
+      "options": {
+        "opt1": "Водитель совершает однократную (разовую) поездку.",
+        "opt2": "Водитель должен делать перерыв как минимум один раз в 12 часов.",
+        "opt3": "Водитель может работать столько часов, сколько потребуется в этот период.",
+        "opt4": "Водитель не обязан делать перерыв после 4.5 часов вождения."
       }
     },
     "stats": {
@@ -232,21 +158,351 @@
   {
     "correctOptionId": "opt3",
     "en": {
-      "question": "When should a driver use the vehicle side lights?",
+      "question": "A driver is working away from a vehicle and the driver’s card is not inserted in the digital tachograph. What should the driver do?",
       "options": {
-        "opt1": "When driving in foggy conditions.",
-        "opt2": "When parking at all times.",
-        "opt3": "When parking on an unlit road.",
-        "opt4": "When driving in an unlit area at night."
+        "opt1": "Do nothing. No action is required.",
+        "opt2": "Advise their employer orally of their activities.",
+        "opt3": "Manually enter times and activities in the tachograph.",
+        "opt4": "Manually write times and activities on a chart."
       }
     },
     "ru": {
-      "question": "Когда водитель должен использовать габаритные огни (side lights)?",
+      "question": "Водитель работает вне транспортного средства, и карта водителя не вставлена в цифровой тахограф. Что должен сделать водитель?",
       "options": {
-        "opt1": "При движении в тумане.",
-        "opt2": "Всегда при парковке.",
-        "opt3": "При парковке на неосвещенной дороге.",
-        "opt4": "При движении в неосвещенной местности ночью."
+        "opt1": "Ничего не делать. Никаких действий не требуется.",
+        "opt2": "Устно сообщить работодателю о своей деятельности.",
+        "opt3": "Вручную ввести время и виды деятельности в тахограф.",
+        "opt4": "Записать время и виды деятельности вручную на регистрационном листе (диаграммном диске)."
+      }
+    },
+    "stats": {
+      "timesShown": 0,
+      "timesCorrect": 0,
+      "lastSelectedOptionId": null
+    }
+  },
+  {
+    "correctOptionId": "opt1",
+    "en": {
+      "question": "Who is required to hold a Road Passenger Transport Operator’s Licence?",
+      "options": {
+        "opt1": "A person or firm with a business involved in transporting persons by road for reward.",
+        "opt2": "A bus or coach driver.",
+        "opt3": "A bus or coach driver of a vehicle with passenger capacity for more than 16 passengers.",
+        "opt4": "A sports club or charity involved in transporting by road persons other than for reward."
+      }
+    },
+    "ru": {
+      "question": "Кто обязан иметь лицензию оператора дорожных пассажирских перевозок?",
+      "options": {
+        "opt1": "Физическое или юридическое лицо, занимающееся коммерческими перевозками пассажиров автомобильным транспортом (за вознаграждение).",
+        "opt2": "Водитель автобуса.",
+        "opt3": "Водитель автобуса с пассажировместимостью более 16 человек.",
+        "opt4": "Спортивный клуб или благотворительная организация, осуществляющая некоммерческие перевозки людей."
+      }
+    },
+    "stats": {
+      "timesShown": 0,
+      "timesCorrect": 0,
+      "lastSelectedOptionId": null
+    }
+  },
+  {
+    "correctOptionId": "opt2",
+    "en": {
+      "question": "What is the maximum permitted speed on a national primary road of a double-decker bus or minibus (having passenger accommodation for more than 8 persons) and which is designed to carry standing passengers?",
+      "options": {
+        "opt1": "55 km/h.",
+        "opt2": "65 km/h.",
+        "opt3": "80 km/h."
+      }
+    },
+    "ru": {
+      "question": "Какова максимально допустимая скорость на национальной первичной дороге (national primary road) для двухэтажного автобуса или микроавтобуса (вмещающего более 8 пассажиров), предназначенного для перевозки стоящих пассажиров?",
+      "options": {
+        "opt1": "55 км/ч.",
+        "opt2": "65 км/ч.",
+        "opt3": "80 км/ч."
+      }
+    },
+    "stats": {
+      "timesShown": 0,
+      "timesCorrect": 0,
+      "lastSelectedOptionId": null
+    }
+  },
+  {
+    "correctOptionId": "opt3",
+    "en": {
+      "question": "What is the maximum permitted speed on a dual carriageway of a single-decker bus or minibus (having passenger accommodation for more than 8 persons) and which is not designed to carry standing passengers?",
+      "options": {
+        "opt1": "60 km/h.",
+        "opt2": "80 km/h.",
+        "opt3": "100 km/h."
+      }
+    },
+    "ru": {
+      "question": "Какова максимально допустимая скорость на дороге с двусторонним раздельным движением (dual carriageway) для одноэтажного автобуса или микроавтобуса (вмещающего более 8 пассажиров), не предназначенного для перевозки стоящих пассажиров?",
+      "options": {
+        "opt1": "60 км/ч.",
+        "opt2": "80 км/ч.",
+        "opt3": "100 км/ч."
+      }
+    },
+    "stats": {
+      "timesShown": 0,
+      "timesCorrect": 0,
+      "lastSelectedOptionId": null
+    }
+  },
+  {
+    "correctOptionId": "opt2",
+    "en": {
+      "question": "What should a driver do to assist a person who is unconscious following a collision?",
+      "options": {
+        "opt1": "Raise the person's head and hold it in that position.",
+        "opt2": "Try to keep the person warm with a blanket or overcoat.",
+        "opt3": "Move the person to the nearest hospital immediately.",
+        "opt4": "Try and get the person to drink something warm."
+      }
+    },
+    "ru": {
+      "question": "Что должен сделать водитель, чтобы помочь человеку, находящемуся без сознания после столкновения?",
+      "options": {
+        "opt1": "Приподнять голову человека и удерживать ее в этом положении.",
+        "opt2": "Постараться согреть человека с помощью одеяла или пальто.",
+        "opt3": "Немедленно доставить человека в ближайшую больницу.",
+        "opt4": "Попытаться дать человеку выпить что-нибудь теплое."
+      }
+    },
+    "stats": {
+      "timesShown": 0,
+      "timesCorrect": 0,
+      "lastSelectedOptionId": null
+    }
+  },
+  {
+    "correctOptionId": "opt4",
+    "en": {
+      "question": "What should a driver do if they arrive at the scene of a collision involving a vehicle carrying hazardous materials?",
+      "options": {
+        "opt1": "Try to prevent any further leakage of hazardous materials before raising the alarm.",
+        "opt2": "Try to move the vehicle to a safe place.",
+        "opt3": "Contact the haulage company who own the vehicle.",
+        "opt4": "Keep well clear and call the emergency services."
+      }
+    },
+    "ru": {
+      "question": "Что должен сделать водитель, если он прибыл на место ДТП с участием транспортного средства, перевозящего опасные грузы?",
+      "options": {
+        "opt1": "Попытаться предотвратить дальнейшую утечку опасных веществ до поднятия тревоги.",
+        "opt2": "Попытаться переместить транспортное средство в безопасное место.",
+        "opt3": "Связаться с транспортной компанией, которой принадлежит автомобиль.",
+        "opt4": "Держаться на безопасном расстоянии и вызвать экстренные службы."
+      }
+    },
+    "stats": {
+      "timesShown": 0,
+      "timesCorrect": 0,
+      "lastSelectedOptionId": null
+    }
+  },
+  {
+    "correctOptionId": "opt3",
+    "en": {
+      "question": "Where a driver using a well maintained handling aid needs to move a heavy load on an uneven surface, up to what percentage of the load weight may be needed to move it?",
+      "options": {
+        "opt1": "2%.",
+        "opt2": "6%.",
+        "opt3": "10%.",
+        "opt4": "14%."
+      }
+    },
+    "ru": {
+      "question": "Если водитель использует исправное погрузочно-разгрузочное оборудование для перемещения тяжелого груза по неровной поверхности, какой процент от веса груза может потребоваться приложить для его перемещения?",
+      "options": {
+        "opt1": "2%.",
+        "opt2": "6%.",
+        "opt3": "10%.",
+        "opt4": "14%."
+      }
+    },
+    "stats": {
+      "timesShown": 0,
+      "timesCorrect": 0,
+      "lastSelectedOptionId": null
+    }
+  },
+  {
+    "correctOptionId": "opt3",
+    "en": {
+      "question": "During the driver walk-around check of the vehicle, what checks should be carried out on the fuel cap?",
+      "options": {
+        "opt1": "That it displays the CE mark.",
+        "opt2": "If missing, the fuel level is low enough that it will not spill.",
+        "opt3": "That it is properly closed and locked."
+      }
+    },
+    "ru": {
+      "question": "Во время кругового осмотра транспортного средства, что следует проверить в крышке топливного бака?",
+      "options": {
+        "opt1": "Имеет ли она маркировку CE.",
+        "opt2": "Если она отсутствует, достаточно ли низок уровень топлива, чтобы оно не пролилось.",
+        "opt3": "Правильно ли она закрыта и заперта."
+      }
+    },
+    "stats": {
+      "timesShown": 0,
+      "timesCorrect": 0,
+      "lastSelectedOptionId": null
+    }
+  },
+  {
+    "correctOptionId": "opt2",
+    "en": {
+      "question": "When leaving the cab of a bus, what should the driver ensure?",
+      "options": {
+        "opt1": "That the retarder is on.",
+        "opt2": "That the electrical master switch is off.",
+        "opt3": "That the parking lights are on."
+      }
+    },
+    "ru": {
+      "question": "Покидая кабину автобуса, в чем должен убедиться водитель?",
+      "options": {
+        "opt1": "Что включен ретардер (вспомогательный тормоз).",
+        "opt2": "Что главный выключатель электропитания выключен.",
+        "opt3": "Что включены стояночные огни."
+      }
+    },
+    "stats": {
+      "timesShown": 0,
+      "timesCorrect": 0,
+      "lastSelectedOptionId": null
+    }
+  },
+  {
+    "correctOptionId": "opt2",
+    "en": {
+      "question": "How can a driver save fuel by using gears?",
+      "options": {
+        "opt1": "By keeping the vehicle speed steady.",
+        "opt2": "By engaging one that does not make the engine struggle.",
+        "opt3": "By keeping the engine revolution lowest according to the rev counter.",
+        "opt4": "By maintaining the greatest engine revolution according to the rev counter."
+      }
+    },
+    "ru": {
+      "question": "Как водитель может экономить топливо с помощью правильного выбора передач?",
+      "options": {
+        "opt1": "Поддерживая постоянную скорость движения автомобиля.",
+        "opt2": "Включая передачу, при которой двигатель работает без перегрузки (не «захлебывается»).",
+        "opt3": "Поддерживая минимально возможные обороты двигателя по тахометру.",
+        "opt4": "Поддерживая максимальные обороты двигателя по тахометру."
+      }
+    },
+    "stats": {
+      "timesShown": 0,
+      "timesCorrect": 0,
+      "lastSelectedOptionId": null
+    }
+  },
+  {
+    "correctOptionId": "opt1",
+    "en": {
+      "question": "What should a driver do when joining a motorway from a slip road?",
+      "options": {
+        "opt1": "Try to match the vehicle speed to that of traffic already on the motorway and merge into it in a suitable gap.",
+        "opt2": "Drive along the hard shoulder until a suitable gap appears in the motorway traffic to allow the driver to merge into it.",
+        "opt3": "Always stop at the end of the acceleration lane and yield to traffic on the motorway.",
+        "opt4": "Drive directly onto the motorway as the driver on the acceleration lane has right of way."
+      }
+    },
+    "ru": {
+      "question": "Что должен сделать водитель при въезде на автомагистраль с полосы разгона?",
+      "options": {
+        "opt1": "Постараться уравнять скорость с потоком на автомагистрали и перестроиться в подходящий интервал.",
+        "opt2": "Ехать по обочине (hard shoulder) до тех пор, пока в потоке автомагистрали не появится подходящий интервал.",
+        "opt3": "Всегда останавливаться в конце полосы разгона и уступать дорогу транспорту на автомагистрали.",
+        "opt4": "Въезжать непосредственно на автомагистраль, так как водитель на полосе разгона имеет преимущество."
+      }
+    },
+    "stats": {
+      "timesShown": 0,
+      "timesCorrect": 0,
+      "lastSelectedOptionId": null
+    }
+  },
+  {
+    "correctOptionId": "opt1",
+    "en": {
+      "question": "How do endurance braking systems control vehicle speed?",
+      "options": {
+        "opt1": "Without the need for using wheel-mounted brakes.",
+        "opt2": "By using the parking brake only.",
+        "opt3": "With spring brake chambers on the rear axle.",
+        "opt4": "By controlling the air pressure to the air brakes only."
+      }
+    },
+    "ru": {
+      "question": "Как системы износостойкого торможения (ретардеры) регулируют скорость транспортного средства?",
+      "options": {
+        "opt1": "Без необходимости использования колесных тормозных механизмов.",
+        "opt2": "Используя только стояночный тормоз.",
+        "opt3": "С помощью пружинных тормозных камер на задней оси.",
+        "opt4": "Управляя только давлением воздуха в пневматических тормозах."
+      }
+    },
+    "stats": {
+      "timesShown": 0,
+      "timesCorrect": 0,
+      "lastSelectedOptionId": null
+    }
+  },
+  {
+    "correctOptionId": "opt1",
+    "en": {
+      "question": "While driving at higher speeds, what does a continuous vibration in the steering indicate?",
+      "options": {
+        "opt1": "The wheel balance is uneven.",
+        "opt2": "Weight distribution is uneven.",
+        "opt3": "The shock absorbers are worn.",
+        "opt4": "The steering is out of alignment."
+      }
+    },
+    "ru": {
+      "question": "О чем свидетельствует непрерывная вибрация руля при движении на высоких скоростях?",
+      "options": {
+        "opt1": "Нарушена балансировка колес.",
+        "opt2": "Неравномерно распределен вес.",
+        "opt3": "Изношены амортизаторы.",
+        "opt4": "Нарушена регулировка схождения/развала колес."
+      }
+    },
+    "stats": {
+      "timesShown": 0,
+      "timesCorrect": 0,
+      "lastSelectedOptionId": null
+    }
+  },
+  {
+    "correctOptionId": "opt2",
+    "en": {
+      "question": "What is the maximum permitted rear load overhang that does not require a red flag or marker?",
+      "options": {
+        "opt1": "0.5 metres.",
+        "opt2": "1 metre.",
+        "opt3": "2 metres.",
+        "opt4": "2.5 metres."
+      }
+    },
+    "ru": {
+      "question": "Каков максимально допустимый свес груза сзади, не требующий установки красного флажка или маркировочного знака?",
+      "options": {
+        "opt1": "0,5 метра.",
+        "opt2": "1 метр.",
+        "opt3": "2 метра.",
+        "opt4": "2,5 метра."
       }
     },
     "stats": {
